@@ -153,7 +153,7 @@ if  __name__ == '__main__':
     df = pd.read_csv(StringIO(data))
     
     meta_wf = Workflow('metaflow')
-    for row in df.ix[:1, :].iterrows():
+    for row in df.iterrows():
         wf = create_workflow(row[1].Subject, sink_dir, row[1]['File Path'])
         meta_wf.add_nodes([wf])
         print('Added workflow for: {}'.format(row[1].Subject))
