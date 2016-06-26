@@ -16,9 +16,9 @@ def download_file(url):
     import os
     URL = 'http://www.nitrc.org/ir/'
     session = requests.session()
-    r = session.get(URL) #, data=payload)
+    r = session.get(URL)
     local_filename = url.split('/')[-1]
-    r = session.get(url, stream=True, cookies=r.cookies) #, auth=('satra', os.getenv('password')))
+    r = session.get(url, stream=True, cookies=r.cookies)
     with open(local_filename, 'wb') as f:
         for chunk in r.iter_content(chunk_size=1024): 
             if chunk: # filter out keep-alive new chunks
