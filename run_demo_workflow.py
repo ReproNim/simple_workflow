@@ -8,7 +8,7 @@ from nipype import config
 config.enable_provenance()
 
 from nipype import Workflow, Node, MapNode, Function
-from nipype.interfaces.fsl import BET, FAST, FIRST, Reorient2Std
+from nipype.interfaces.fsl import BET, FAST, FIRST, Reorient2Std, ImageMaths, ImageStats
 from nipype.interfaces.io import DataSink
 
 def download_file(url):
@@ -25,18 +25,23 @@ def download_file(url):
                 f.write(chunk)    
     return os.path.abspath(local_filename)
 
-def get_stats(seg_file):
+def toJSON(stats, seg_file, structures):
+    import json
     import os
     import nibabel as nb
     import numpy as np
     img = nb.load(seg_file)
     data = img.get_data()
     idx = np.unique(data)
-    values = zip(idx, np.bincount(data.flatten())[idx])
-    filename = 'segstats.txt'
-    with open(filename, 'wt') as fp:
-        fp.writelines(['%d,%d\n' % val for val in values ])
-    return os.path.abspath(filename)
+    out_dict = dict(zip([str(val) for val in idx], np.bincount(data.flatten())[idx]))
+    mapper = dict([(0, 'csf'), (1, 'gray'), (2, 'white')])
+    out_dict.update(**{mapper[idx]: val for idx, val in enumerate(stats)})
+
+    out_file = 'segstats.json'
+    with open(out_file, 'wt') as fp:
+        json.dump(out_dict, fp, sort_keys=True, indent=4, separators=(',', ': '))
+    return os.path.abspath(out_file)
+
 
 def create_workflow(subject_id, outdir, file_url):
     sink_directory = os.path.join(outdir, subject_id)
@@ -50,25 +55,34 @@ def create_workflow(subject_id, outdir, file_url):
     better = Node(BET(), name='extract_brain')
     faster = Node(FAST(), name='segment_brain')
     firster = Node(FIRST(), name='parcellate_brain')
-    statser = Node(Function(input_names=['seg_file'], output_names=['stats_file'],
-                          function=get_stats), name="get_stats")
+    #statser = Node(Function(input_names=['seg_file'], output_names=['stats_file'],
+    #                      function=get_stats), name="get_stats")
     sinker = Node(DataSink(), name='store_results')
+    structures = ['L_Hipp', 'R_Hipp',
+                  'L_Accu', 'R_Accu',
+                  'L_Amyg', 'R_Amyg',
+                  'L_Caud', 'R_Caud',
+                  'L_Pall', 'R_Pall',
+                  'L_Puta', 'R_Puta',
+                  'L_Thal', 'R_Thal']
+    firster.inputs.list_of_specific_structures = structures
+    fslstatser = MapNode(ImageStats(), iterfield=['op_string'], name="compute_segment_stats")
+    fslstatser.inputs.op_string = ['-l {thr1} -u {thr2} -v'.format(thr1=val + 0.5, thr2=val + 1.5) for val in range(3)]
 
-    firster.inputs.list_of_specific_structures = ['L_Hipp', 'R_Hipp',
-                                                  'L_Accu', 'R_Accu',
-                                                  'L_Amyg', 'R_Amyg',
-                                                  'L_Caud', 'R_Caud',
-                                                  'L_Pall', 'R_Pall',
-                                                  'L_Puta', 'R_Puta',
-                                                  'L_Thal', 'R_Thal']
+    jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structures'], 
+                              output_names=['out_file'],
+                              function=toJSON), name='save_json')
 
     wf.connect(getter, 'localfile', orienter, 'in_file')
     wf.connect(orienter, 'out_file', better, 'in_file')
     wf.connect(orienter, 'out_file', firster, 'in_file')
 
     wf.connect(better, 'out_file', faster, 'in_files')
-    wf.connect(firster, 'segmentation_file', statser, 'seg_file')
-    
+    wf.connect(faster, 'partial_volume_map', fslstatser, 'in_file')
+    wf.connect(fslstatser, 'out_stat', jsonfiler, 'stats')
+    wf.connect(firster, 'segmentation_file', jsonfiler, 'seg_file')
+    jsonfiler.inputs.structures = structures
+
     sinker.inputs.base_directory = sink_directory
 
     wf.connect(better, 'out_file', sinker, 'brain')
@@ -84,8 +98,8 @@ def create_workflow(subject_id, outdir, file_url):
     wf.connect(firster, 'original_segmentations', sinker, 'parcels.@origsegs')
     wf.connect(firster, 'segmentation_file', sinker, 'parcels.@segfile')
     wf.connect(firster, 'vtk_surfaces', sinker, 'parcels.@vtk')
-    wf.connect(statser, 'stats_file', sinker, '@stats')
-
+    #wf.connect(statser, 'stats_file', sinker, '@stats')
+    wf.connect(jsonfiler, 'out_file', sinker, '@stats')
     return wf
 
 if  __name__ == '__main__':
@@ -100,7 +114,7 @@ if  __name__ == '__main__':
     parser.add_argument("-w", "--work_dir", dest="work_dir",
                         help="Output directory base")
     parser.add_argument("-p", "--plugin", dest="plugin",
-                        default='Linear',
+                        default='MultiProc',
                         help="Plugin to use")
     parser.add_argument("--plugin_args", dest="plugin_args",
                         help="Plugin arguments")
@@ -131,6 +145,7 @@ if  __name__ == '__main__':
         print('Added workflow for: {}'.format(row[1].Subject))
 
     meta_wf.base_dir = work_dir
+    meta_wf.config['execution']['remove_unnecessary_files'] = False
     if args.plugin_args:
         meta_wf.run(args.plugin, plugin_args=eval(args.plugin_args))
     else:
