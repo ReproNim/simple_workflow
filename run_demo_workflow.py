@@ -33,7 +33,7 @@ def toJSON(stats, seg_file, structure_map):
     img = nb.load(seg_file)
     data = img.get_data()
     idx = np.unique(data)
-    reverse_map = {v:k for k,v in structure_map.items()}
+    reverse_map = {k:v for v, k in structure_map}
     out_dict = dict(zip([reverse_map[val] for val in idx], np.bincount(data.flatten())[idx]))
     mapper = dict([(0, 'csf'), (1, 'gray'), (2, 'white')])
     out_dict.update(**{mapper[idx]: val for idx, val in enumerate(stats)})
