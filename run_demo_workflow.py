@@ -25,7 +25,7 @@ def download_file(url):
                 f.write(chunk)    
     return os.path.abspath(local_filename)
 
-def toJSON(stats, seg_file, structures):
+def toJSON(stats, seg_file, structure_map):
     import json
     import os
     import nibabel as nb
@@ -33,7 +33,8 @@ def toJSON(stats, seg_file, structures):
     img = nb.load(seg_file)
     data = img.get_data()
     idx = np.unique(data)
-    out_dict = dict(zip([str(val) for val in idx], np.bincount(data.flatten())[idx]))
+    reverse_map = {v:k for k,v in structure_map.items()}
+    out_dict = dict(zip([reverse_map[val] for val in idx], np.bincount(data.flatten())[idx]))
     mapper = dict([(0, 'csf'), (1, 'gray'), (2, 'white')])
     out_dict.update(**{mapper[idx]: val for idx, val in enumerate(stats)})
 
@@ -55,8 +56,6 @@ def create_workflow(subject_id, outdir, file_url):
     better = Node(BET(), name='extract_brain')
     faster = Node(FAST(), name='segment_brain')
     firster = Node(FIRST(), name='parcellate_brain')
-    #statser = Node(Function(input_names=['seg_file'], output_names=['stats_file'],
-    #                      function=get_stats), name="get_stats")
     sinker = Node(DataSink(), name='store_results')
     structures = ['L_Hipp', 'R_Hipp',
                   'L_Accu', 'R_Accu',
@@ -65,11 +64,26 @@ def create_workflow(subject_id, outdir, file_url):
                   'L_Pall', 'R_Pall',
                   'L_Puta', 'R_Puta',
                   'L_Thal', 'R_Thal']
+    structure_map = [('Background', 0),
+                     ('Left-Thalamus-Proper', 10),
+                     ('Left-Caudate', 11),
+                     ('Left-Putamen', 12),
+                     ('Left-Pallidum', 13),
+                     ('Left-Hippocampus', 17),
+                     ('Left-Amygdala', 18),
+                     ('Left-Accumbens-area', 26),
+                     ('Right-Thalamus-Proper', 49),
+                     ('Right-Caudate', 50),
+                     ('Right-Putamen', 51),
+                     ('Right-Pallidum', 52),
+                     ('Right-Hippocampus', 53),
+                     ('Right-Amygdala', 54),
+                     ('Right-Accumbens-area', 58)]
     firster.inputs.list_of_specific_structures = structures
     fslstatser = MapNode(ImageStats(), iterfield=['op_string'], name="compute_segment_stats")
     fslstatser.inputs.op_string = ['-l {thr1} -u {thr2} -v'.format(thr1=val + 0.5, thr2=val + 1.5) for val in range(3)]
 
-    jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structures'], 
+    jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structure_map'], 
                               output_names=['out_file'],
                               function=toJSON), name='save_json')
 
@@ -81,7 +95,7 @@ def create_workflow(subject_id, outdir, file_url):
     wf.connect(faster, 'partial_volume_map', fslstatser, 'in_file')
     wf.connect(fslstatser, 'out_stat', jsonfiler, 'stats')
     wf.connect(firster, 'segmentation_file', jsonfiler, 'seg_file')
-    jsonfiler.inputs.structures = structures
+    jsonfiler.inputs.structure_map = structure_map
 
     sinker.inputs.base_directory = sink_directory
 
