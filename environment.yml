@@ -2,8 +2,6 @@ name: bh_demo
 dependencies:
 - decorator=4.0.10=py27_0
 - future=0.15.2=py27_0
-- libxml2=2.9.2=0
-- libxslt=1.1.28=2
 - lxml=3.6.0=py27_0
 - mkl=11.3.3=0
 - networkx=1.11=py27_0
