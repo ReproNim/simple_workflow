@@ -20,4 +20,5 @@ pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
 
 ```
 python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
+python check_output.py
 ```
