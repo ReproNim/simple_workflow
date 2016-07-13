@@ -12,7 +12,6 @@ git clone https://github.com/satra/simple_workflow.git
 cd simple_workflow
 conda env create -f environment.yml
 source activate bh_demo
-pip install https://github.com/nipy/nipype/archive/master.zip
 pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
 ```
 
