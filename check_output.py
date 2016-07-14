@@ -15,6 +15,8 @@ if len(output_files) != len(expected_files):
     print('Mismatch in number of expected (%d) and actual (%d) output files' % (len(expected_files),
                                                                                 len(output_files)))
 
+outputmap = {0: 'voxels', 1: 'volume'}
+
 df = pd.DataFrame()
 for filename in expected_files:
     with open(filename, 'rt') as fp:
@@ -24,7 +26,7 @@ for filename in expected_files:
         for k, v in in_dict.items():
             if isinstance(v, list):
                 for idx, value in enumerate(v):
-                    in_dict_mod["k%d" % idx] = value
+                    in_dict_mod["%s_%s" % (k, outputmap[idx]] = value
             else:
                 in_dict_mod[k] = v
         df[subject] = pd.Series(in_dict_mod)
@@ -39,7 +41,7 @@ for filename in output_files:
         for k, v in in_dict.items():
             if isinstance(v, list):
                 for idx, value in enumerate(v):
-                    in_dict_mod["k%d" % idx] = value
+                    in_dict_mod["%s_%s" % (k, outputmap[idx]] = value
             else:
                 in_dict_mod[k] = v
         df_out[subject] = pd.Series(in_dict_mod)
