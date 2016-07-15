@@ -26,7 +26,7 @@ for filename in expected_files:
         for k, v in in_dict.items():
             if isinstance(v, list):
                 for idx, value in enumerate(v):
-                    in_dict_mod["%s_%s" % (k, outputmap[idx]] = value
+                    in_dict_mod["%s_%s" % (k, outputmap[idx])] = value
             else:
                 in_dict_mod[k] = v
         df[subject] = pd.Series(in_dict_mod)
@@ -41,7 +41,7 @@ for filename in output_files:
         for k, v in in_dict.items():
             if isinstance(v, list):
                 for idx, value in enumerate(v):
-                    in_dict_mod["%s_%s" % (k, outputmap[idx]] = value
+                    in_dict_mod["%s_%s" % (k, outputmap[idx])] = value
             else:
                 in_dict_mod[k] = v
         df_out[subject] = pd.Series(in_dict_mod)
