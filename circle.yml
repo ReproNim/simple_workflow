@@ -9,7 +9,7 @@ dependencies:
     
   override:
     # Install apt packages
-    - sudo apt-get install -y fsl-core fsl-atlases fsl-mni152-templates fsl-feeds
+    - sudo apt-get install -y fsl-core fsl-atlases fsl-mni152-templates
     - echo 'source /etc/fsl/fsl.sh' >> $HOME/.profile
     - echo 'export PATH=~/miniconda2/bin:$$PATH' >> $HOME/.profile
     - source $HOME/.profile; conda env create -f environment.yml
