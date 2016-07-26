@@ -1,0 +1,30 @@
+dependencies:
+  cache_directories:
+    - "~/.apt-cache"
+  pre:
+    # Let CircleCI cache the apt archive
+    - sudo rm -rf /var/cache/apt/archives && sudo ln -s ~/.apt-cache /var/cache/apt/archives && mkdir -p ~/.apt-cache/partial
+    - bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
+    - wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh; bash ./miniconda.sh -b
+    
+  override:
+    # Install apt packages
+    - sudo apt-get install -y fsl-core fsl-atlases fsl-mni152-templates fsl-feeds
+    - echo 'source /etc/fsl/fsl.sh' >> $HOME/.profile
+    - echo 'export PATH=~/miniconda2/bin:$$PATH' >> $HOME/.profile
+    - source $HOME/.profile; conda env create -f environment.yml
+    - echo 'source activate bh_demo' >> $HOME/.profile
+    - source $HOME/.profile; pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
+
+machine:
+  environment:
+    FSLOUTPUTTYPE: NIFTI_GZ
+test:
+  override:
+    - source $HOME/.profile; python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
+    - source $HOME/.profile; python check_output.py | tee ~/log.txt
+    - cat ~/log.txt && if grep -q "difference" ~/log.txt; then false; else true; fi
+
+general:
+  artifacts:
+    - "~/log.txt"
