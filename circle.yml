@@ -13,7 +13,7 @@ dependencies:
     - echo 'source /etc/fsl/fsl.sh' >> $HOME/.profile
     - echo 'export PATH=~/miniconda2/bin:$$PATH' >> $HOME/.profile
     - source $HOME/.profile; conda env create -f environment.yml
-    - echo 'source activate bh_demo' >> $HOME/.profile
+    - echo 'export PATH=~/miniconda2/envs/bh_demo/bin:$$PATH' >> $HOME/.profile
     - source $HOME/.profile; pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
 
 machine:
