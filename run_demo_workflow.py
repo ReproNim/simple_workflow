@@ -157,7 +157,8 @@ if  __name__ == '__main__':
         wf = create_workflow(row[1].Subject, sink_dir, row[1]['File Path'])
         meta_wf.add_nodes([wf])
         print('Added workflow for: {}'.format(row[1].Subject))
-        if os.environ['CIRCLECI] == 'true':
+        # run this for only one person on CircleCI
+        if os.environ['CIRCLECI'] == 'true':
             break
 
     meta_wf.base_dir = work_dir
