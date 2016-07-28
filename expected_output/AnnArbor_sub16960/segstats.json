@@ -1,19 +1,64 @@
 {
-    "Background": 8088403,
-    "Left-Accumbens-area": 232,
-    "Left-Amygdala": 608,
-    "Left-Caudate": 3362,
-    "Left-Hippocampus": 3084,
-    "Left-Pallidum": 1451,
-    "Left-Putamen": 4800,
-    "Left-Thalamus-Proper": 6841,
-    "Right-Accumbens-area": 151,
-    "Right-Amygdala": 609,
-    "Right-Caudate": 3197,
-    "Right-Hippocampus": 1940,
-    "Right-Pallidum": 1489,
-    "Right-Putamen": 3920,
-    "Right-Thalamus-Proper": 6377,
+    "Background": [
+        8088403,
+        9706083.9856851101
+    ],
+    "Left-Accumbens-area": [
+        232,
+        278.40001106262207
+    ],
+    "Left-Amygdala": [
+        608,
+        729.60002899169922
+    ],
+    "Left-Caudate": [
+        3362,
+        4034.4001603126526
+    ],
+    "Left-Hippocampus": [
+        3084,
+        3700.8001470565796
+    ],
+    "Left-Pallidum": [
+        1451,
+        1741.2000691890717
+    ],
+    "Left-Putamen": [
+        4800,
+        5760.0002288818359
+    ],
+    "Left-Thalamus-Proper": [
+        6841,
+        8209.2003262042999
+    ],
+    "Right-Accumbens-area": [
+        151,
+        181.20000720024109
+    ],
+    "Right-Amygdala": [
+        609,
+        730.80002903938293
+    ],
+    "Right-Caudate": [
+        3197,
+        3836.4001524448395
+    ],
+    "Right-Hippocampus": [
+        1940,
+        2328.0000925064087
+    ],
+    "Right-Pallidum": [
+        1489,
+        1786.8000710010529
+    ],
+    "Right-Putamen": [
+        3920,
+        4704.000186920166
+    ],
+    "Right-Thalamus-Proper": [
+        6377,
+        7652.4003040790558
+    ],
     "csf": [
         162235.0,
         194682.0

@@ -144,7 +144,6 @@ if  __name__ == '__main__':
     else:
         work_dir = os.getcwd()
 
-    max_subjects = args.num_subjects if args.num_subjects else inf
 
     sink_dir = os.path.abspath(args.sink_dir)
 
@@ -158,6 +157,7 @@ if  __name__ == '__main__':
     data = r.content
 
     df = pd.read_csv(StringIO(data))
+    max_subjects = args.num_subjects if args.num_subjects else df.shape[0]
     
     meta_wf = Workflow('metaflow')
     count = 0
