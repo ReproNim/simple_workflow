@@ -23,7 +23,7 @@ test:
   override:
     - source $HOME/.profile; python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
     - source $HOME/.profile; python check_output.py | tee ~/log.txt
-    - cat ~/log.txt && if grep -q "difference" ~/log.txt; then false; else true; fi
+    - cat ~/log.txt && if grep -q "MATCH" ~/log.txt; then true; else false; fi
 
 general:
   artifacts:

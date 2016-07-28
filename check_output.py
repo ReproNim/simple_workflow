@@ -47,8 +47,11 @@ for filename in output_files:
         df_out[subject] = pd.Series(in_dict_mod)
 df_out = df_out.T
 
+df.to_csv('ExpectedOutput.csv')
+df_out.to_csv('ActualOutput.csv')
+
 if np.allclose(df, df_out):
-    print('Outputs are close enough!')
+    print('Outputs MATCH')
 else:
     print('Outputs are not close enough. Printing difference')
     print(df - df_out)
