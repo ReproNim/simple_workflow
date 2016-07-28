@@ -55,5 +55,4 @@ if np.allclose(df, df_out):
 else:
     print('Outputs are not close enough. Printing difference')
     print(df - df_out)
-
-    
+(df - df_out).to_csv('Difference.csv')
