@@ -32,9 +32,12 @@ def toJSON(stats, seg_file, structure_map):
     import numpy as np
     img = nb.load(seg_file)
     data = img.get_data()
+    voxel2vol = np.prod(img.header.get_zooms())
     idx = np.unique(data)
     reverse_map = {k:v for v, k in structure_map}
     out_dict = dict(zip([reverse_map[val] for val in idx], np.bincount(data.flatten())[idx]))
+    for key in out_dict.keys():
+        out_dict[key] = [out_dict[key], voxel2vol * out_dict[key]]
     mapper = dict([(0, 'csf'), (1, 'gray'), (2, 'white')])
     out_dict.update(**{mapper[idx]: val for idx, val in enumerate(stats)})
 
@@ -83,7 +86,7 @@ def create_workflow(subject_id, outdir, file_url):
     fslstatser = MapNode(ImageStats(), iterfield=['op_string'], name="compute_segment_stats")
     fslstatser.inputs.op_string = ['-l {thr1} -u {thr2} -v'.format(thr1=val + 0.5, thr2=val + 1.5) for val in range(3)]
 
-    jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structure_map'], 
+    jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structure_map', 'struct_file'], 
                               output_names=['out_file'],
                               function=toJSON), name='save_json')
 
@@ -132,12 +135,16 @@ if  __name__ == '__main__':
                         help="Plugin to use")
     parser.add_argument("--plugin_args", dest="plugin_args",
                         help="Plugin arguments")
+    parser.add_argument("-n", dest="num_subjects", type=int,
+                        help="Number of subjects")
     args = parser.parse_args()
 
     if args.work_dir:
         work_dir = os.path.abspath(args.work_dir)
     else:
         work_dir = os.getcwd()
+
+    max_subjects = args.num_subjects if args.num_subjects else inf
 
     sink_dir = os.path.abspath(args.sink_dir)
 
@@ -153,12 +160,14 @@ if  __name__ == '__main__':
     df = pd.read_csv(StringIO(data))
     
     meta_wf = Workflow('metaflow')
+    count = 0
     for row in df.iterrows():
         wf = create_workflow(row[1].Subject, sink_dir, row[1]['File Path'])
         meta_wf.add_nodes([wf])
         print('Added workflow for: {}'.format(row[1].Subject))
+        count = count + 1
         # run this for only one person on CircleCI
-        if os.environ['CIRCLECI'] == 'true':
+        if ('CIRCLECI' in os.environ and os.environ['CIRCLECI'] == 'true') or count >= max_subjects:
             break
 
     meta_wf.base_dir = work_dir
