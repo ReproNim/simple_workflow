@@ -85,7 +85,7 @@ def create_workflow(subject_id, outdir, file_url):
 
     jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structure_map', 'struct_file'], 
                               output_names=['out_file'],
-                              function=toJSON), name='save_json'
+                              function=toJSON), name='save_json')
     structure_map = [('Background', 0),
                      ('Left-Thalamus-Proper', 10),
                      ('Left-Caudate', 11),
