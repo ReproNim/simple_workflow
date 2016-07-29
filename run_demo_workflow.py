@@ -12,6 +12,7 @@ from nipype.interfaces.fsl import BET, FAST, FIRST, Reorient2Std, ImageMaths, Im
 from nipype.interfaces.io import DataSink
 
 def download_file(url):
+    """Download file for a given participant"""
     import requests
     import os
     URL = 'http://www.nitrc.org/ir/'
@@ -26,6 +27,7 @@ def download_file(url):
     return os.path.abspath(local_filename)
 
 def toJSON(stats, seg_file, structure_map):
+    """Combine stats files to a single JSON file"""
     import json
     import os
     import nibabel as nb
@@ -40,7 +42,6 @@ def toJSON(stats, seg_file, structure_map):
         out_dict[key] = [out_dict[key], voxel2vol * out_dict[key]]
     mapper = dict([(0, 'csf'), (1, 'gray'), (2, 'white')])
     out_dict.update(**{mapper[idx]: val for idx, val in enumerate(stats)})
-
     out_file = 'segstats.json'
     with open(out_file, 'wt') as fp:
         json.dump(out_dict, fp, sort_keys=True, indent=4, separators=(',', ': '))
@@ -48,18 +49,26 @@ def toJSON(stats, seg_file, structure_map):
 
 
 def create_workflow(subject_id, outdir, file_url):
+    """Create a workflow for a single participant"""
+
     sink_directory = os.path.join(outdir, subject_id)
     
     wf = Workflow(name=subject_id)
 
     getter = Node(Function(input_names=['url'], output_names=['localfile'],
-                          function=download_file), name="download_url")
+                           function=download_file), name="download_url")
     getter.inputs.url = file_url
+
     orienter = Node(Reorient2Std(), name='reorient_brain')
+    wf.connect(getter, 'localfile', orienter, 'in_file')
+
     better = Node(BET(), name='extract_brain')
+    wf.connect(orienter, 'out_file', better, 'in_file')
+
     faster = Node(FAST(), name='segment_brain')
+    wf.connect(better, 'out_file', faster, 'in_files')
+
     firster = Node(FIRST(), name='parcellate_brain')
-    sinker = Node(DataSink(), name='store_results')
     structures = ['L_Hipp', 'R_Hipp',
                   'L_Accu', 'R_Accu',
                   'L_Amyg', 'R_Amyg',
@@ -67,6 +76,16 @@ def create_workflow(subject_id, outdir, file_url):
                   'L_Pall', 'R_Pall',
                   'L_Puta', 'R_Puta',
                   'L_Thal', 'R_Thal']
+    firster.inputs.list_of_specific_structures = structures
+    wf.connect(orienter, 'out_file', firster, 'in_file')
+
+    fslstatser = MapNode(ImageStats(), iterfield=['op_string'], name="compute_segment_stats")
+    fslstatser.inputs.op_string = ['-l {thr1} -u {thr2} -v'.format(thr1=val + 0.5, thr2=val + 1.5) for val in range(3)]
+    wf.connect(faster, 'partial_volume_map', fslstatser, 'in_file')
+
+    jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structure_map', 'struct_file'], 
+                              output_names=['out_file'],
+                              function=toJSON), name='save_json'
     structure_map = [('Background', 0),
                      ('Left-Thalamus-Proper', 10),
                      ('Left-Caudate', 11),
@@ -82,26 +101,12 @@ def create_workflow(subject_id, outdir, file_url):
                      ('Right-Hippocampus', 53),
                      ('Right-Amygdala', 54),
                      ('Right-Accumbens-area', 58)]
-    firster.inputs.list_of_specific_structures = structures
-    fslstatser = MapNode(ImageStats(), iterfield=['op_string'], name="compute_segment_stats")
-    fslstatser.inputs.op_string = ['-l {thr1} -u {thr2} -v'.format(thr1=val + 0.5, thr2=val + 1.5) for val in range(3)]
-
-    jsonfiler = Node(Function(input_names=['stats', 'seg_file', 'structure_map', 'struct_file'], 
-                              output_names=['out_file'],
-                              function=toJSON), name='save_json')
-
-    wf.connect(getter, 'localfile', orienter, 'in_file')
-    wf.connect(orienter, 'out_file', better, 'in_file')
-    wf.connect(orienter, 'out_file', firster, 'in_file')
-
-    wf.connect(better, 'out_file', faster, 'in_files')
-    wf.connect(faster, 'partial_volume_map', fslstatser, 'in_file')
+    jsonfiler.inputs.structure_map = structure_map
     wf.connect(fslstatser, 'out_stat', jsonfiler, 'stats')
     wf.connect(firster, 'segmentation_file', jsonfiler, 'seg_file')
-    jsonfiler.inputs.structure_map = structure_map
 
+    sinker = Node(DataSink(), name='store_results')
     sinker.inputs.base_directory = sink_directory
-
     wf.connect(better, 'out_file', sinker, 'brain')
     wf.connect(faster, 'bias_field', sinker, 'segs.@bias_field')
     wf.connect(faster, 'partial_volume_files', sinker, 'segs.@partial_files')
@@ -110,13 +115,12 @@ def create_workflow(subject_id, outdir, file_url):
     wf.connect(faster, 'restored_image', sinker, 'segs.@restored')
     wf.connect(faster, 'tissue_class_files', sinker, 'segs.@tissue_files')
     wf.connect(faster, 'tissue_class_map', sinker, 'segs.@tissue_map')
-
     wf.connect(firster, 'bvars', sinker, 'parcels.@bvars')
     wf.connect(firster, 'original_segmentations', sinker, 'parcels.@origsegs')
     wf.connect(firster, 'segmentation_file', sinker, 'parcels.@segfile')
     wf.connect(firster, 'vtk_surfaces', sinker, 'parcels.@vtk')
-    #wf.connect(statser, 'stats_file', sinker, '@stats')
     wf.connect(jsonfiler, 'out_file', sinker, '@stats')
+
     return wf
 
 if  __name__ == '__main__':
@@ -157,7 +161,11 @@ if  __name__ == '__main__':
     data = r.content
 
     df = pd.read_csv(StringIO(data))
-    max_subjects = args.num_subjects if args.num_subjects else df.shape[0]
+    max_subjects = df.shape[0]
+    if args.num_subjects:
+        max_subjects = args.num_subjects
+    elif ('CIRCLECI' in os.environ and os.environ['CIRCLECI'] == 'true'):
+        max_subjects = 1
     
     meta_wf = Workflow('metaflow')
     count = 0
@@ -167,7 +175,7 @@ if  __name__ == '__main__':
         print('Added workflow for: {}'.format(row[1].Subject))
         count = count + 1
         # run this for only one person on CircleCI
-        if ('CIRCLECI' in os.environ and os.environ['CIRCLECI'] == 'true') or count >= max_subjects:
+        if count >= max_subjects:
             break
 
     meta_wf.base_dir = work_dir
@@ -177,4 +185,3 @@ if  __name__ == '__main__':
         meta_wf.run(args.plugin, plugin_args=eval(args.plugin_args))
     else:
         meta_wf.run(args.plugin)
-    
