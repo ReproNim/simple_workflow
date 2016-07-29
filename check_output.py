@@ -63,3 +63,30 @@ if np.allclose(df_diff, 0):
 else:
     print('Outputs are not close enough. Printing difference')
     print(df_diff)
+
+import rdflib as rl
+query = """
+PREFIX nipype: <http://nipy.org/nipype/terms/>  
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+SELECT DISTINCT ?platform ?fslversion
+{ ?a a prov:Activity;
+     nipype:platform ?platform;
+     nipype:version ?fslversion .
+     FILTER (?fslversion != 'Unknown')
+}  
+"""
+prov_files = sorted(glob('workflow_prov*.trig'))
+
+g = rl.ConjunctiveGraph()
+g.parse(prov_files[0], format='trig')
+res = g.query(query)  
+print("Original platform: {}".format(str(res.bindings[0]['platform'])))
+print("Original FSL version: {}".format(str(res.bindings[0]['fslversion'])))
+
+g = rl.ConjunctiveGraph()
+g.parse(prov_files[-1], format='trig')
+res = g.query(query)  
+for val in res.bindings:
+    print("Current platform: {}".format(str(val['platform'])))
+    print("Current FSL version: {}".format(str(val['fslversion'])))
