@@ -20,7 +20,7 @@ export PATH=$HOME/miniconda2/bin:$PATH
 
 #### get the repo and create the specific versioned python environment
 ```
-git clone https://github.com/satra/simple_workflow.git
+git clone https://github.com/ReproNim/simple_workflow.git
 cd simple_workflow
 conda env create -f environment.yml
 source activate bh_demo
