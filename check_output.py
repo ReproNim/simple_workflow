@@ -52,9 +52,14 @@ df_out = df_out.T
 df.to_csv('ExpectedOutput.csv')
 df_out.to_csv('ActualOutput.csv')
 
-if np.allclose(df, df_out):
+df_diff = df - df_out
+
+if 'CIRCLECI' in os.environ:
+    df_diff = df_diff.dropna()
+df_diff.to_csv('Difference.csv')
+
+if np.allclose(df_diff, 0):
     print('Outputs MATCH')
 else:
     print('Outputs are not close enough. Printing difference')
-    print(df - df_out)
-(df - df_out).to_csv('Difference.csv')
+    print(df_diff)
