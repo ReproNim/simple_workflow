@@ -10,6 +10,8 @@ if len(expected_files) < 24:
     raise ValueError('Expected 24 files, but only %d files exist' % len(expected_files))
 
 output_files = sorted(glob('output/*/*.json'))
+if len(output_files) == 0:
+    raise ValueError('Output has no files')
 
 if len(output_files) != len(expected_files):
     print('Mismatch in number of expected (%d) and actual (%d) output files' % (len(expected_files),

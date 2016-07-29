@@ -1,3 +1,5 @@
+https://circleci.com/gh/:owner/:repo.png?circle-token=:circle-token
+
 #### Information queried and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 
