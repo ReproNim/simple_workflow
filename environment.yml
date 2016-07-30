@@ -10,7 +10,7 @@ dependencies:
 - icu=56.1=4
 - libiconv=1.14=3
 - libxml2=2.9.3=9
-- libxslt=1.1.28=2
+- libxslt=1.1.28
 - lxml=3.6.1=py27_0
 - mkl=11.3.3=0
 - networkx=1.11=py27_0
