@@ -31,9 +31,7 @@ python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -
 
 ### Detailed steps for setting up environment
 
-1. Setup standalone python environment
-
-At the end of the miniconda install it will ask you to add it to your bash profile. If you do not add it, then you will need to make sure the conda binary is in your path.
+Install miniconda if you do not have it.
 
 For Linux:
 ```bash
