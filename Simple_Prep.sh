@@ -15,7 +15,7 @@ conda config --add channels conda-forge
 # Get the repo and Create the specific versioned python environment                                                            
 echo "Get the repo and Create the specific versioned python environment"                                                       
                                                                                                                                
-curl -OsSL https://github.com/ReproNim/simple_workflow/archive/master.zip                                                      
+curl -OksSL https://github.com/ReproNim/simple_workflow/archive/master.zip                                                      
 unzip master.zip                                                                                                               
 cd simple_workflow-master                                                                                                      
 conda env create -f environment.yml                                                                                            
