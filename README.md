@@ -1,30 +1,20 @@
-[![CircleCI](https://circleci.com/gh/ReproNim/simple_workflow.svg?style=svg)](https://circleci.com/gh/ReproNim/simple_workflow)
+**Integration Testing:** [![CircleCI](https://circleci.com/gh/ReproNim/simple_workflow.svg?style=svg)](https://circleci.com/gh/ReproNim/simple_workflow)
 
-#### Information queried and stored in a google spreadsheet
+**Note:** This demo is intended to run on OS X and Linux environments.
+
+#### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 
-#### Setup standalone python environment
+#### Setup your own environment
+1. Make sure FSL is available in your environment and accessible from the command line.
 
-At the end of the miniconda install it will ask you to add it to your bash profile. If you do not add it, then you will need to make sure the conda binary is in your path.
-```
-wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh
-chmod +x miniconda.sh
-./miniconda.sh -b
-conda config --add channels conda-forge
-```
+2. If you already have a `conda` environment, please follow the detailed steps below. 
 
-If you did not add miniconda to your environment, execute:
-```
-export PATH=$HOME/miniconda2/bin:$PATH
-```
+3. If you do not have a conda environment, the following step will download and install a Python 2 conda environment with the appropriate python packages. 
 
-#### get the repo and create the specific versioned python environment
 ```
-git clone https://github.com/ReproNim/simple_workflow.git
-cd simple_workflow
-conda env create -f environment.yml
-source activate bh_demo
-pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
+curl -O https://raw.githubusercontent.com/ReproNim/simple_workflow/master/Simple_Prep.sh
+source Simple_Prep.sh
 ```
 
 #### Run the demo
@@ -32,4 +22,47 @@ pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
 ```
 python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 python check_output.py
+```
+
+To run on one subject you can do:
+```
+python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1
+```
+
+### Detailed steps for setting up environment
+
+1. Setup standalone python environment
+
+At the end of the miniconda install it will ask you to add it to your bash profile. If you do not add it, then you will need to make sure the conda binary is in your path.
+
+For Linux:
+```
+curl -o miniconda.sh wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+```
+
+For OS X:
+```
+curl -o miniconda.sh wget http://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
+```
+
+Setup miniconda.
+```
+chmod +x miniconda.sh
+./miniconda.sh -b
+conda config --add channels conda-forge
+```
+
+If you did not add miniconda to your environment (`.bash_profile`), execute to add to your current environment:
+```
+export PATH=$HOME/miniconda2/bin:$PATH
+```
+
+#### Download the Simple Workflow repository and create the specific versioned Python environment for Nipype
+```
+curl -OsSL https://github.com/ReproNim/simple_workflow/archive/master.zip
+unzip master.zip
+cd simple_workflow-master
+conda env create -f environment.yml
+source activate bh_demo
+pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
 ```
