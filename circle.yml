@@ -30,4 +30,6 @@ test:
 general:
   artifacts:
     - "~/log.txt"
-    - "~/simple_workflow/*.csv"
+    - "~/simple_workflow/ActualOutput.csv"
+    - "~/simple_workflow/Difference.csv"
+    - "~/simple_workflow/ExpectedOutput.csv"
