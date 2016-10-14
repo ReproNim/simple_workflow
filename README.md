@@ -35,12 +35,12 @@ Install miniconda if you do not have it.
 
 For Linux:
 ```bash
-curl -o miniconda.sh wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+curl -o miniconda.sh  http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
 ```
 
 For OS X:
 ```bash
-curl -o miniconda.sh wget http://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
+curl -o miniconda.sh  http://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
 ```
 
 Setup miniconda.
