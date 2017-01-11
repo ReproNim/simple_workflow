@@ -13,7 +13,7 @@ https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh
 3. If you do not have a conda environment, the following step will download and install a Python 2 conda environment with the appropriate python packages. 
 
 ```bash
-curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/master/Simple_Prep.sh
+curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb494da496565ec27c4ffe8a4901c45/Simple_Prep.sh
 source Simple_Prep.sh
 ```
 
