@@ -1,6 +1,6 @@
 **Integration Testing:** [![CircleCI](https://circleci.com/gh/ReproNim/simple_workflow.svg?style=svg)](https://circleci.com/gh/ReproNim/simple_workflow)
 
-**Note:** This demo is intended to run on OS X and Linux environments.
+**Note:** This demo is intended to run on OS X and GNU/Linux environments.
 
 #### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
@@ -10,7 +10,7 @@ https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh
 
 2. If you already have a `conda` environment, please follow the detailed steps below. 
 
-3. If you do not have a conda environment, the following step will download and install a Python 2 conda environment with the appropriate python packages. 
+3. If you do not have a conda environment, make sure you have `curl` and `unzip` commands available, and the following step will download and install a Python 2 conda environment with the appropriate Python packages:
 
 ```bash
 curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb494da496565ec27c4ffe8a4901c45/Simple_Prep.sh
@@ -43,7 +43,7 @@ For OS X:
 curl -o miniconda.sh  http://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
 ```
 
-Setup miniconda.
+Setup miniconda:
 ```bash
 chmod +x miniconda.sh
 ./miniconda.sh -b
