@@ -1,0 +1,36 @@
+FROM neurodebian:DL_DIST
+MAINTAINER Yaroslav Halchenko <debian@onerussian.com>
+
+USER root
+
+# Speed up installation using our apt cacher - modify conf/etc/apt/apt.conf.d/99apt-cacher if you have any
+RUN mkdir -p /etc/apt/apt.conf.d/
+COPY conf/etc/apt/apt.conf.d/99apt-cacher /etc/apt/apt.conf.d/99apt-cacher
+RUN chmod a+r /etc/apt/apt.conf.d/99apt-cacher
+
+# Make deb-src avail
+# RUN sed -i -e 's,^deb\(.*\),deb\1\ndeb-src\1,g' /etc/apt/sources.list.d/neurodebian.sources.list /etc/apt/sources.list
+
+# Make contrib and non-free avail for FSL
+RUN sed -i -e 's, main$, main contrib non-free,g' /etc/apt/sources.list.d/neurodebian.sources.list
+
+# Assure popcon doesn't kick in
+RUN bash -c "echo 'debconf debconf/frontend select noninteractive' | debconf-set-selections -"
+
+RUN apt-get update
+# Use bash for extended syntax
+RUN apt-get install -y -q eatmydata
+# Some rudimentary tools if we need to do anything within docker and curl and unzip needed for setting up conda
+RUN bash -c "eatmydata apt-get install -y -q vim less man-db curl unzip"
+# Run additional lines, primarily to setup/enable snapshots repository etc
+RUN bash -c "DL_APT"
+# Install fsl-complete
+RUN bash -c "eatmydata apt-get install -y -q fsl-complete"
+
+RUN apt-get clean
+
+# Let's setup user matching user
+## RUN groupadd --gid DL_GID -r DL_USER && useradd -m --uid DL_UID -g DL_USER DL_USER
+
+RUN apt-get clean
+## CMD ["/bin/bash"]
