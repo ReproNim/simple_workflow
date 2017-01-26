@@ -5,7 +5,10 @@
 #### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 
-#### Setup your own environment
+#### Within your current environment
+
+##### Setup
+
 1. Make sure FSL is available in your environment and accessible from the command line.
 
 2. If you already have a `conda` environment, please follow the detailed steps below. 
@@ -17,7 +20,7 @@ curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb4
 source Simple_Prep.sh
 ```
 
-#### Run the demo
+##### Run the demo
 
 ```bash
 python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
@@ -29,7 +32,7 @@ To run on one subject you can do:
 python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1
 ```
 
-### Detailed steps for setting up environment
+#### Detailed steps for setting up environment
 
 Install miniconda if you do not have it.
 
@@ -64,3 +67,44 @@ conda env create -f environment.yml
 source activate bh_demo
 pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
 ```
+
+### Within Docker
+
+Using containerization solutions, such as docker, allows to create
+multiple complete computation environments while varying versions of any
+analysis pipeline components or inputs.  You could use [Simple_Prep_docker](Simple_Prep_docker)
+script to generate environments based on previous [Debian](http://www.debian.org) or [Ubuntu](http://ubuntu.com) releases
+for which [NeuroDebian](http://neuro.debian.net) builds of FSL [were available in the past](http://snapshot-neuro.debian.net:5002/package/fsl).
+
+N.B.  ATM NeuroDebian snapshots repository is not widely open yet, so if
+you would like to browse it, please "knock" first by running
+`curl -s http://neuro.debian.net/_files/knock-snapshots` command in your shell.
+
+#### Generate an environment
+
+For an example we will generate an environment based on Debian jessie
+release with FSL 5.0.8-3 as it was available in March of 2015:
+
+```bash
+./Simple_Prep_docker jessie 20150306T060524Z
+```
+
+which will generate a local docker image `repronim:simple_prep_USER_jessie_20150306T060524Z`
+(`USER` will correspond to your user name), with all necessary for computation
+components installed.
+
+#### Run the demo
+
+You can normally run a demo with only **one additional step** necessary -- setting up
+environment variables (to point to FSL binaries and enable  conda environment):
+
+```bash
+docker run -it --rm repronim:simple_prep_USER_jessie_20150306T060524Z /bin/bash -c '
+  . setup_environment;
+  cd simple_workflow-master
+  && python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
+  && python check_output.py'
+```
+
+which would generate a new temporary container, perform analysis, run
+the check, and quit.

@@ -1,0 +1,60 @@
+#!/bin/bash
+#emacs: -*- mode: shell-script; c-basic-offset: 4; tab-width: 4; indent-tabs-mode: t -*- 
+#ex: set sts=4 ts=4 sw=4 noet:
+# ## ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ##
+#
+#   See COPYING file distributed along with the XXX package for the
+#   copyright and license terms.
+#
+# ## ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ##
+#
+# Helper to generate a Docker instance given release and snapshots date specification
+# and run Simple_Prep.sh analysis
+#
+set -e
+export PS4=+
+#set -x
+set -u
+
+DL_DIST=${1:-jessie}
+DL_DATE=${2:-}
+
+topdir=$(readlink -f `dirname $0`)
+cd `dirname $0`
+dockerfile=$topdir/Simple_Prep_docker-Dockerfile
+# echo "D: $DL_APT"
+# Some substitutes aren't used but left for possibly later use
+sed -e "s,DL_DIST,$DL_DIST,g" \
+    -e "s,DL_USER,$USER,g" \
+    -e "s,DL_UID,`id -u`,g" \
+    -e "s,DL_GID,`id -g`,g" \
+    -e "s,DL_GIT_USER_EMAIL,`git config --get user.email`,g" \
+    -e "s,DL_GIT_USER_NAME,`git config --get user.name`,g" \
+    $dockerfile.in >| $dockerfile
+
+if [ ! -z "$DL_DATE" ]; then
+{
+    # replace with snapshots
+    echo "sed -i -e 's,http://neuro.debian.net/debian/* ,http://snapshot-neuro.debian.net:5002/archive/neurodebian/$DL_DATE/ ,g' etc/apt/sources.list.d/neurodebian.sources.list;"
+    # for now we need to knock to expose snapshots repository
+    echo "curl -s http://neuro.debian.net/_files/knock-snapshots;"
+    # TODO: figure out and add snapshot for DL_DIST itself if available and force possible downgrade somehow
+    echo "eatmydata apt-get update; eatmydata apt-get dist-upgrade -y;"
+} | while read aptline; do
+    sed -i -e "s|\(\(.*\)DL_APT\(.*\)\)|\2$aptline\3\n\1|g" $dockerfile
+    :
+done
+fi
+sed -e '/DL_APT/d' -i $dockerfile
+
+tag_=simple_prep_${USER}_${DL_DIST}_${DL_DATE}
+tag=repronim:${tag_}
+echo "I: tag $tag"
+if docker images | grep -q repronim.*${tag_}; then
+    echo "I: tag $tag already exists -- skipping rebuilding"
+else
+    docker build -t $tag -f $dockerfile .
+    #docker build --no-cache=True -t $tag -f $dockerfile . #&& rm Dockerfile
+    :
+fi
+
