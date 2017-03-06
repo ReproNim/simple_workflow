@@ -16,8 +16,8 @@ conda config --add channels conda-forge
 # Get the repo and Create the specific versioned python environment
 echo "Getting the analysis repo"
 
-curl -OksSL https://github.com/ReproNim/simple_workflow/archive/master.zip
-unzip master.zip
+# Checkout the repository to gain traceable version of the analysis script
+git clone https://github.com/ReproNim/simple_workflow simple_workflow-master
 cd simple_workflow-master
 
 echo "Creating specificly versioned Python environment"
