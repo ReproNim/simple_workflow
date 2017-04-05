@@ -44,18 +44,24 @@ sed -e "s,DL_DIST,$DL_DIST,g" \
 
 if [ ! -z "$DL_DATE" ]; then
 {
-    # replace with snapshots
-    echo "sed -i -e 's,http://neuro.debian.net/debian/* ,http://snapshot-neuro.debian.net:5002/archive/neurodebian/$DL_DATE/ ,g' etc/apt/sources.list.d/neurodebian.sources.list;"
+    # replace with snapshots.  Cannot use -i due to OSX but since done inside the container
+    # should be safe just to use some explicit /tmp/apt.sources
+    echo "sed -e 's,http://neuro.debian.net/debian/* ,http://snapshot-neuro.debian.net:5002/archive/neurodebian/$DL_DATE/ ,g' etc/apt/sources.list.d/neurodebian.sources.list > /tmp/apt.sources; mv /tmp/apt.sources etc/apt/sources.list.d/neurodebian.sources.list"
     # for now we need to knock to expose snapshots repository
     echo "curl -s http://neuro.debian.net/_files/knock-snapshots;"
     # TODO: figure out and add snapshot for DL_DIST itself if available and force possible downgrade somehow
     echo "eatmydata apt-get update; eatmydata apt-get dist-upgrade -y;"
 } | while read aptline; do
-    sed-i "$dockerfile" -e "s|\(\(.*\)DL_APT\(.*\)\)|\2$aptline\3\
+    # on OSX cannot use \n to get a newline in sed, so doing POSIX way, although also escaping trailing \
+    # so it is in effect within sed-i call
+    sed-i "$dockerfile" -e "s|\(\(.*\)DL_APT\(.*\)\)|\2$aptline\3\\
 \1|g"
     :
 done
 fi
+
+# for debugging
+# cat $dockerfile
 sed-i "$dockerfile" -e '/DL_APT/d'
 
 tag_=simple_prep_${USER}_${DL_DIST}_${DL_DATE}
