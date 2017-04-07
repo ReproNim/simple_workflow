@@ -89,8 +89,8 @@ release with FSL 5.0.8-3 as it was available in March of 2015:
 ./Simple_Prep_docker jessie 20150306T060524Z
 ```
 
-which will generate a local docker image `repronim:simple_prep_USER_jessie_20150306T060524Z`
-(`USER` will correspond to your user name), with all necessary for computation
+which will generate a local docker image `repronim:simple_prep_${USER}_jessie_20150306T060524Z`
+(`${USER}` will correspond to your user name), with all necessary for computation
 components installed.
 
 #### Run the demo
@@ -99,10 +99,10 @@ You can normally run a demo with only **one additional step** necessary -- setti
 environment variables (to point to FSL binaries and enable  conda environment):
 
 ```bash
-docker run -it --rm repronim:simple_prep_USER_jessie_20150306T060524Z /bin/bash -c '
-  . setup_environment;
-  cd simple_workflow-master
-  && python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
+docker run -it --rm repronim:simple_prep_${USER}_jessie_20150306T060524Z /bin/bash -c ' \
+  . setup_environment; \
+  cd simple_workflow-master \
+  && python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA \
   && python check_output.py'
 ```
 

@@ -16,12 +16,22 @@ export PS4=+
 #set -x
 set -u
 
+# a little helper since sed on OSX does not have sed -i
+# for in-place modifications.  Note that filename here comes first
+# just to ease scripting
+sed-i () {
+  filename=$1
+  tfilename=$(mktemp -t sed_replace.XXXXXXXXX)
+  shift
+  sed "$@" "$filename" >| "$tfilename"
+  mv "$tfilename" "$filename"
+}
+
 DL_DIST=${1:-jessie}
 DL_DATE=${2:-}
 
-topdir=$(readlink -f `dirname $0`)
 cd `dirname $0`
-dockerfile=$topdir/Simple_Prep_docker-Dockerfile
+dockerfile=./Simple_Prep_docker-Dockerfile
 # echo "D: $DL_APT"
 # Some substitutes aren't used but left for possibly later use
 sed -e "s,DL_DIST,$DL_DIST,g" \
@@ -34,18 +44,24 @@ sed -e "s,DL_DIST,$DL_DIST,g" \
 
 if [ ! -z "$DL_DATE" ]; then
 {
-    # replace with snapshots
-    echo "sed -i -e 's,http://neuro.debian.net/debian/* ,http://snapshot-neuro.debian.net:5002/archive/neurodebian/$DL_DATE/ ,g' etc/apt/sources.list.d/neurodebian.sources.list;"
+    # replace with snapshots.  Since ran inside the container, sed -i should be ok
+    echo "sed -i -e 's,http://neuro.debian.net/debian/* ,http://snapshot-neuro.debian.net:5002/archive/neurodebian/$DL_DATE/ ,g' etc/apt/sources.list.d/neurodebian.sources.list"
     # for now we need to knock to expose snapshots repository
     echo "curl -s http://neuro.debian.net/_files/knock-snapshots;"
     # TODO: figure out and add snapshot for DL_DIST itself if available and force possible downgrade somehow
     echo "eatmydata apt-get update; eatmydata apt-get dist-upgrade -y;"
 } | while read aptline; do
-    sed -i -e "s|\(\(.*\)DL_APT\(.*\)\)|\2$aptline\3\n\1|g" $dockerfile
+    # on OSX cannot use \n to get a newline in sed, so doing POSIX way, although also escaping trailing \
+    # so it is in effect within sed-i call
+    sed-i "$dockerfile" -e "s|\(\(.*\)DL_APT\(.*\)\)|\2$aptline\3\\
+\1|g"
     :
 done
 fi
-sed -e '/DL_APT/d' -i $dockerfile
+
+# for debugging
+# cat $dockerfile
+sed-i "$dockerfile" -e '/DL_APT/d'
 
 tag_=simple_prep_${USER}_${DL_DIST}_${DL_DATE}
 tag=repronim:${tag_}
