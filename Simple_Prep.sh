@@ -54,7 +54,7 @@ if [ ! -e miniconda/envs/bh_demo ]; then
     conda clean -tipsy
 fi
 
-if [ $1 == "test" ]; then
+if [ "$1" == "test" ]; then
     PATH=$PWD/miniconda/envs/bh_demo/bin:$PATH
     cd scripts
     python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 && \
