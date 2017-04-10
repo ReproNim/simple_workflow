@@ -1,35 +1,34 @@
+machine:
+  services:
+    - docker
+
 dependencies:
   cache_directories:
+    - "~/docker"
     - "~/.apt-cache"
-  pre:
-    # Let CircleCI cache the apt archive
-    - sudo rm -rf /var/cache/apt/archives && sudo ln -s ~/.apt-cache /var/cache/apt/archives && mkdir -p ~/.apt-cache/partial
-    - bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
-    - wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh; bash ./miniconda.sh -b
-    
-  override:
-    # Install apt packages
-    - sudo apt-get install -y fsl-core fsl-atlases fsl-mni152-templates fsl-first-data
-    - echo 'source /etc/fsl/fsl.sh' >> $HOME/.profile
-    - echo 'export PATH=~/miniconda2/bin:$PATH' >> $HOME/.profile
-    - source $HOME/.profile; conda config --add channels conda-forge
-    - source $HOME/.profile; conda env create -f environment.yml
-    - echo 'source activate bh_demo' >> $HOME/.profile
-    - source $HOME/.profile; pip install https://github.com/satra/prov/archive/enh/rdf-1.x.zip
 
-machine:
-  environment:
-    FSLOUTPUTTYPE: NIFTI_GZ
+  pre:
+    - mkdir -p $HOME/docker
+
+  override:
+    - if [[ -e "$HOME/docker/cache.tar" ]]; then docker load --input $HOME/docker/cache.tar; fi
+    - docker images
+    - ./Simple_Prep_docker jessie 20170410T000000Z && repronimtag=repronim:$(docker images repronim | tail -n 1 | awk '{print $2}') && (echo "export repronimtag=$repronimtag" >> ~/.circlerc) :
+        timeout: 1000
+    - echo $repronimtag
+    - docker save -o $HOME/docker/cache.tar $repronimtag
+
 test:
   override:
-    - source $HOME/.profile; python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 2 :
-       timeout: 4000
-    - source $HOME/.profile; python check_output.py | tee ~/log.txt
+    - echo $repronimtag
+    - docker run -it --rm -v $HOME/output:/opt/repronim/simple_workflow/scripts/output $repronimtag run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 2 :
+       timeout: 3000
+    - docker run -it --rm -v $HOME/output:/opt/repronim/simple_workflow/scripts/output $repronimtag check_output.py --ignoremissing | tee ~/log.txt
     - cat ~/log.txt && if grep -q "MATCH" ~/log.txt; then true; else false; fi
 
 general:
   artifacts:
     - "~/log.txt"
-    - "~/simple_workflow/ActualOutput.csv"
-    - "~/simple_workflow/Difference.csv"
-    - "~/simple_workflow/ExpectedOutput.csv"
+    - "~/output/ActualOutput.csv"
+    - "~/output/Difference.csv"
+    - "~/output/ExpectedOutput.csv"
