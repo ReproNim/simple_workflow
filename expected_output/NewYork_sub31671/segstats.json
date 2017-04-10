@@ -1,0 +1,74 @@
+{
+    "Background": [
+        11491788,
+        11491788.0
+    ],
+    "Left-Accumbens-area": [
+        244,
+        244.0
+    ],
+    "Left-Amygdala": [
+        659,
+        659.0
+    ],
+    "Left-Caudate": [
+        3769,
+        3769.0
+    ],
+    "Left-Hippocampus": [
+        2911,
+        2911.0
+    ],
+    "Left-Pallidum": [
+        1898,
+        1898.0
+    ],
+    "Left-Putamen": [
+        4460,
+        4460.0
+    ],
+    "Left-Thalamus-Proper": [
+        7238,
+        7238.0
+    ],
+    "Right-Accumbens-area": [
+        189,
+        189.0
+    ],
+    "Right-Amygdala": [
+        1071,
+        1071.0
+    ],
+    "Right-Caudate": [
+        3517,
+        3517.0
+    ],
+    "Right-Hippocampus": [
+        2721,
+        2721.0
+    ],
+    "Right-Pallidum": [
+        1921,
+        1921.0
+    ],
+    "Right-Putamen": [
+        4800,
+        4800.0
+    ],
+    "Right-Thalamus-Proper": [
+        7150,
+        7150.0
+    ],
+    "csf": [
+        275326.0,
+        275326.0
+    ],
+    "gray": [
+        774960.0,
+        774960.0
+    ],
+    "white": [
+        560805.0,
+        560805.0
+    ]
+}
