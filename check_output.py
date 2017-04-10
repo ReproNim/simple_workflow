@@ -51,14 +51,14 @@ for filename in output_files:
         df_out[subject] = pd.Series(in_dict_mod)
 df_out = df_out.T
 
-df.to_csv('ExpectedOutput.csv')
-df_out.to_csv('ActualOutput.csv')
+df.to_csv('output/ExpectedOutput.csv')
+df_out.to_csv('output/ActualOutput.csv')
 
 df_diff = df - df_out
 
 if 'CIRCLECI' in os.environ:
     df_diff = df_diff.dropna()
-df_diff.to_csv('Difference.csv')
+df_diff.to_csv('output/Difference.csv')
 
 if np.allclose(df_diff, 0):
     print('Outputs MATCH')
