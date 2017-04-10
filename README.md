@@ -67,10 +67,10 @@ Now you can run the image as:
 
 ```bash
 docker run -it --rm $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest python run_demo_workflow.py \
+   repronim/simple_workflow:latest run_demo_workflow.py \
    --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA  
 docker run -it --rm $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest python check_output.py
+   repronim/simple_workflow:latest check_output.py
 ```
 
 ### Building docker image with custom environment

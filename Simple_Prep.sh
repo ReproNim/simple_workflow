@@ -3,7 +3,13 @@
 set -e
 
 # Check if FSL is available
-[ ! $(command -v bet) ] && echo "No bet: Make sure an FSL version is installed and available." && exit 1
+if [ ! $(command -v bet) ]; then
+    if [ -f /etc/fsl/fsl.sh ]; then
+        source /etc/fsl/fsl.sh
+    else
+        echo "No bet: Make sure an FSL version is installed and available." && exit 1
+    fi
+fi
 echo "FSL bet is available"
 
 # Check if curl is available
