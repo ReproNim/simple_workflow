@@ -3,13 +3,13 @@
 #ex: set sts=4 ts=4 sw=4 noet:
 # ## ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ##
 #
-#   See COPYING file distributed along with the XXX package for the
+#   See COPYING file distributed along with the simple_workflow package for the
 #   copyright and license terms.
 #
 # ## ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ##
 #
 # Helper to generate a Docker instance given release and snapshots date specification
-# and run Simple_Prep.sh analysis
+# and run simple_workflow analysis
 #
 set -e
 export PS4=+
@@ -66,11 +66,9 @@ sed-i "$dockerfile" -e '/DL_APT/d'
 tag_=simple_prep_${USER}_${DL_DIST}_${DL_DATE}
 tag=repronim:${tag_}
 echo "I: tag $tag"
-if docker images | grep -q repronim.*${tag_}; then
-    echo "I: tag $tag already exists -- skipping rebuilding"
-else
+if [ $(command -v docker) ]; then
     docker build -t $tag -f $dockerfile .
-    #docker build --no-cache=True -t $tag -f $dockerfile . #&& rm Dockerfile
-    :
+else
+    echo "Could not find docker. Please install and rerun script"
+    exit 1
 fi
-
