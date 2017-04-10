@@ -6,12 +6,12 @@ from glob import glob
 import pandas as pd
 import numpy as np
 
-expected_files = sorted(glob('expected_output/*/*.json'))
+expected_files = sorted(glob('expected_output/*/segstats.json'))
 
 if len(expected_files) < 24:
     raise ValueError('Expected 24 files, but only %d files exist' % len(expected_files))
 
-output_files = sorted(glob('output/*/*.json'))
+output_files = sorted(glob('output/*/segstats.json'))
 if len(output_files) == 0:
     raise ValueError('Output has no files')
 
@@ -78,13 +78,15 @@ SELECT DISTINCT ?platform ?fslversion
      FILTER (?fslversion != 'Unknown')
 }  
 """
-prov_files = sorted(glob('workflow_prov*.trig'))
+prov_files = sorted(glob('expected_output/workflow_prov*.trig'))
 
 g = rl.ConjunctiveGraph()
 g.parse(prov_files[0], format='trig')
 res = g.query(query)  
 print("Original platform: {}".format(str(res.bindings[0]['platform'])))
 print("Original FSL version: {}".format(str(res.bindings[0]['fslversion'])))
+
+prov_files = sorted(glob('output/workflow_prov*.trig'))
 
 g = rl.ConjunctiveGraph()
 g.parse(prov_files[-1], format='trig')

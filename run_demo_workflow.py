@@ -143,13 +143,11 @@ if  __name__ == '__main__':
                         help="Number of subjects")
     args = parser.parse_args()
 
+    sink_dir = os.path.abspath(args.sink_dir)
     if args.work_dir:
         work_dir = os.path.abspath(args.work_dir)
     else:
-        work_dir = os.getcwd()
-
-
-    sink_dir = os.path.abspath(args.sink_dir)
+        work_dir = sink_dir
 
     from StringIO import StringIO  # got moved to io in python3.
 
