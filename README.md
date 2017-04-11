@@ -9,7 +9,7 @@ The following non-free Debian packages are part of the Docker container:
 non-free/science        fsl-5.0-core
 non-free/science        fsl-atlases, fsl-first-data
 
-If you are considering commercial use of this App please consult the relevant licenses.
+If you are considering commercial use of the container please consult the [relevant license](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence).
 
 ### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
@@ -45,7 +45,7 @@ docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output 
 
 The script will check for availability of the following:
 
-1. FSL
+1. [FSL](https://fsl.fmrib.ox.ac.uk/)
 2. curl
 3. git or unzip
 
