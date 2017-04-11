@@ -21,12 +21,22 @@ First download the image
 docker pull repronim/simple_workflow:latest
 ```
 
-Now you can run the image as:
+Now you can run the image as follows to test on 1 participant's data:
 
 ```bash
 docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
    repronim/simple_workflow:latest run_demo_workflow.py \
-   --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA  
+   --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 
+docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
+   repronim/simple_workflow:latest check_output.py --ignoremissing
+```
+
+You can extend this to all participants as follows. 
+
+```bash
+docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
+   repronim/simple_workflow:latest run_demo_workflow.py \
+   --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
    repronim/simple_workflow:latest check_output.py
 ```
