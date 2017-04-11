@@ -32,36 +32,20 @@ RUN bash -c "eatmydata apt-get install -y -q fsl-core fsl-first-data"
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /boot /media /mnt /srv
 
-ENV FSLMULTIFILEQUIT=TRUE
-ENV POSSUMDIR=/usr/share/fsl/5.0
-ENV LD_LIBRARY_PATH=/usr/lib/fsl/5.0
-ENV FSLTCLSH=/usr/bin/tclsh
-ENV FSLMACHINELIST=
-ENV FSLREMOTECALL=
-ENV FSLWISH=/usr/bin/wish
-ENV FSLBROWSER=/etc/alternatives/x-www-browser
-ENV SHLVL=1
-ENV FSLDIR=/usr/share/fsl/5.0
-ENV FSLLOCKDIR=
-ENV FSLOUTPUTTYPE=NIFTI_GZ
-ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/fsl/5.0
-
 # Setting up conda environment given simple_workflow specifications
 RUN mkdir /opt/repronim && mkdir /opt/repronim/simple_workflow && \
     mkdir /opt/repronim/simple_workflow/scripts
 WORKDIR /opt/repronim/
 # RUN curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb494da496565ec27c4ffe8a4901c45/Simple_Prep.sh
-COPY Simple_Prep.sh .
+COPY Simple_Prep.sh ./
 WORKDIR /opt/repronim/simple_workflow/scripts
-COPY environment.yml .
+COPY environment.yml ./
 COPY expected_output expected_output
 COPY *.py ./
 WORKDIR /opt/repronim/
 RUN bash Simple_Prep.sh
 
-ENV PATH=/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/opt/repronim/simple_workflow/miniconda/bin/:$PATH
-ENV CONDA_PATH_BACKUP=/opt/repronim/simple_workflow/miniconda/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/fsl/5.0
-ENV CONDA_PREFIX=/opt/repronim/simple_workflow/miniconda/envs/bh_demo
-ENV CONDA_DEFAULT_ENV=bh_demo
-
 WORKDIR /opt/repronim/simple_workflow/scripts
+COPY startup.sh ./
+RUN chmod +x startup.sh
+ENTRYPOINT ["/opt/repronim/simple_workflow/scripts/startup.sh"]
