@@ -44,6 +44,6 @@ WORKDIR /opt/repronim/
 RUN bash Simple_Prep.sh
 
 WORKDIR /opt/repronim/simple_workflow/scripts
-COPY startup.sh .
+COPY startup.sh ./
 RUN chmod +x startup.sh
 ENTRYPOINT ["/opt/repronim/simple_workflow/scripts/startup.sh"]
