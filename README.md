@@ -14,7 +14,24 @@ If you are considering commercial use of this App please consult the relevant li
 ### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 
-### To execute demo within your current environment
+### 1. To execute demo with Docker
+
+First download the image
+```bash
+docker pull repronim/simple_workflow:latest
+```
+
+Now you can run the image as:
+
+```bash
+docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
+   repronim/simple_workflow:latest run_demo_workflow.py \
+   --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA  
+docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
+   repronim/simple_workflow:latest check_output.py
+```
+
+### 2. To execute demo within your current environment
 
 The script will check for availability of the following:
 
@@ -67,24 +84,7 @@ export PATH=$OLDPATH
 unset OLDPATH
 ```
 
-### To execute demo with Docker
-
-First download the image
-```bash
-docker pull repronim/simple_workflow:latest
-```
-
-Now you can run the image as:
-
-```bash
-docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest run_demo_workflow.py \
-   --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA  
-docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest check_output.py
-```
-
-### To build docker image with custom environment
+### 3. To build docker image with custom environment
 
 Using containerization solutions, such as Docker, allows to create
 multiple complete computation environments while varying versions of any
@@ -113,7 +113,7 @@ You can then run the demo using the docker image run commands above by replacing
 `repronim/simple_workflow:latest` with `repronim:simple_prep_${USER}_jessie_20150306T060524Z`
 (`${USER}`
 
-### Other containers
+### 4. fOther containers
 
 You can also using [Singularity](http://singularity.lbl.gov/) to run the docker 
 image from DockerHub.
