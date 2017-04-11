@@ -2,7 +2,7 @@
 
 **Note:** This demo is intended to run on OS X and GNU/Linux environments, but you can use the Docker container to run on any system you can run Docker or Singularity on.
 
-#### Notice for commercial use
+### Notice for commercial use
 
 The following non-free Debian packages are part of the Docker container:
 
@@ -11,10 +11,10 @@ non-free/science        fsl-atlases, fsl-first-data
 
 If you are considering commercial use of this App please consult the relevant licenses.
 
-#### Information queried from NITRC-IR and stored in a google spreadsheet
+### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 
-#### Within your current environment
+### To execute demo within your current environment
 
 The script will check for availability of the following:
 
@@ -22,24 +22,26 @@ The script will check for availability of the following:
 2. curl
 3. git or unzip
 
-Download the script
+#### Download the script
 
 ```bash
 curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/f5c6a2d96a0697bf634379749f862c2aa95990f5/Simple_Prep.sh
 ```
 
-Setup the environment. This will setup a complete environment within a directory
+#### Setup the environment. 
+
+This will setup a complete environment within a directory
 called simple_workflow. It will not add anything to your existing environment.
 ```bash
 bash Simple_Prep.sh
 ```
 
-Execute a single subject test.
+#### Execute a single subject test.
 ```bash
 bash Simple_Prep.sh test
 ```
 
-##### Run the full demo on all subjects
+#### Run the full demo on all subjects
 
 To use the newly created environment
 ```bash
@@ -65,7 +67,7 @@ export PATH=$OLDPATH
 unset OLDPATH
 ```
 
-### With Docker
+### To execute demo with Docker
 
 First download the image
 ```bash
@@ -82,7 +84,7 @@ docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output 
    repronim/simple_workflow:latest check_output.py
 ```
 
-### Building docker image with custom environment
+### To build docker image with custom environment
 
 Using containerization solutions, such as Docker, allows to create
 multiple complete computation environments while varying versions of any
@@ -111,7 +113,7 @@ You can then run the demo using the docker image run commands above by replacing
 `repronim/simple_workflow:latest` with `repronim:simple_prep_${USER}_jessie_20150306T060524Z`
 (`${USER}`
 
-#### Other containers
+### Other containers
 
 You can also using [Singularity](http://singularity.lbl.gov/) to run the docker 
 image from DockerHub.
