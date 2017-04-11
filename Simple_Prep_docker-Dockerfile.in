@@ -35,9 +35,9 @@ RUN mkdir /opt/repronim && mkdir /opt/repronim/simple_workflow && \
     mkdir /opt/repronim/simple_workflow/scripts
 WORKDIR /opt/repronim/
 # RUN curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb494da496565ec27c4ffe8a4901c45/Simple_Prep.sh
-COPY Simple_Prep.sh .
+COPY Simple_Prep.sh ./
 WORKDIR /opt/repronim/simple_workflow/scripts
-COPY environment.yml .
+COPY environment.yml ./
 COPY expected_output expected_output
 COPY *.py ./
 WORKDIR /opt/repronim/
