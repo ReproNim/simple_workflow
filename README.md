@@ -16,7 +16,7 @@ The script will check for availability of the following:
 Download the script
 
 ```bash
-curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb494da496565ec27c4ffe8a4901c45/Simple_Prep.sh
+curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/f5c6a2d96a0697bf634379749f862c2aa95990f5/Simple_Prep.sh
 ```
 
 Setup the environment. This will setup a complete environment within a directory
