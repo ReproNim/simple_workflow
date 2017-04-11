@@ -1,6 +1,6 @@
 **Integration Testing:** [![CircleCI](https://circleci.com/gh/ReproNim/simple_workflow.svg?style=svg)](https://circleci.com/gh/ReproNim/simple_workflow)
 
-**Note:** This demo is intended to run on OS X and GNU/Linux environments.
+**Note:** This demo is intended to run on OS X and GNU/Linux environments, but you can use the Docker container to run on any system you can run Docker or Singularity on.
 
 #### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
@@ -105,4 +105,4 @@ You can then run the demo using the docker image run commands above by replacing
 #### Other containers
 
 You can also using [Singularity](http://singularity.lbl.gov/) to run the docker 
-image from DockerHub. 
+image from DockerHub.
