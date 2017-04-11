@@ -2,6 +2,15 @@
 
 **Note:** This demo is intended to run on OS X and GNU/Linux environments, but you can use the Docker container to run on any system you can run Docker or Singularity on.
 
+#### Notice for commercial use
+
+The following non-free Debian packages are part of the Docker container:
+
+non-free/science        fsl-5.0-core
+non-free/science        fsl-atlases, fsl-first-data
+
+If you are considering commercial use of this App please consult the relevant licenses.
+
 #### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 
