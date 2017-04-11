@@ -7,7 +7,7 @@ if [ ! $(command -v bet) ]; then
     if [ -f /etc/fsl/fsl.sh ]; then
         source /etc/fsl/fsl.sh
     else
-        echo "No bet: Make sure an FSL version is installed and available." && exit 1
+        echo "No bet: Make sure an FSL version - https://fsl.fmrib.ox.ac.uk/ - is installed and available." && exit 1
     fi
 fi
 echo "FSL bet is available"
