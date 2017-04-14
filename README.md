@@ -58,7 +58,12 @@ curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/f5c6a2d96a06
 #### Setup the environment. 
 
 This will setup a complete environment within a directory
-called simple_workflow. It will not add anything to your existing environment.
+called simple_workflow. It will not add anything to your existing environment. 
+
+Note: Because of some limitations with the underlying packages, it may determine 
+that your current working directory path is too long and will ask you to move to 
+a shorter directory path.
+
 ```bash
 bash Simple_Prep.sh
 ```
@@ -70,7 +75,12 @@ bash Simple_Prep.sh test
 
 #### Run the full demo on all subjects
 
-To use the newly created environment
+Option 1:
+```bash
+bash Simple_Prep.sh replay
+```
+
+Option 2: To use the newly created environment
 ```bash
 cd simple_workflow/scripts
 export OLDPATH=$PATH

@@ -7,13 +7,13 @@ if [ ! $(command -v bet) ]; then
     if [ -f /etc/fsl/fsl.sh ]; then
         source /etc/fsl/fsl.sh
     else
-        echo "No bet: Make sure an FSL version - https://fsl.fmrib.ox.ac.uk/ - is installed and available." && exit 1
+        echo "No bet: Make sure an FSL version - https://fsl.fmrib.ox.ac.uk/ - is installed and available." && kill -INT $$
     fi
 fi
 echo "FSL bet is available"
 
 # Check if curl is available
-[ ! $(command -v curl) ] && echo "No curl: Make sure a version of curl is installed and available." && exit 1
+[ ! $(command -v curl) ] && echo "No curl: Make sure a version of curl is installed and available." && kill -INT $$
 echo "curl is available"
 
 echo "Creating local directory simple_workflow to create and execute environment"
@@ -55,7 +55,23 @@ if [ ! -e scripts/expected_output ]; then
 fi
 
 echo "Creating and activating versioned Python environment"
-if [ ! -e miniconda/envs/bh_demo ]; then
+if [ ! -e miniconda/envs/bh_demo/bin/nipype_display_crash ]; then
+    if [ -e miniconda/envs/bh_demo/ ]; then
+        rm -rf miniconda/envs/bh_demo
+    fi
+    if [ ${#PWD} -gt 36 ]; then
+        echo "---- BEGIN SIMPLE_PREP SCRIPT WARNING ----
+
+If you receive a PaddingError with the following command, your current
+working directory path length ${#PWD} is longer than 36 chars. Move to
+a working directory path that is at most 36 chars. Run:
+
+echo \${#PWD}
+
+to check.
+
+---- END SIMPLE_PREP SCRIPT WARNING ----"
+    fi
     conda env create -f scripts/environment.yml
     conda clean -tipsy
 fi
@@ -65,6 +81,12 @@ if [ "$1" == "test" ]; then
     cd scripts
     python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 && \
     python check_output.py --ignoremissing
+fi
+if [ "$1" == "replay" ]; then
+    PATH=$PWD/miniconda/envs/bh_demo/bin:$PATH
+    cd scripts
+    python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA && \
+    python check_output.py
 fi
 
 export PATH
