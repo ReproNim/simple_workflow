@@ -131,7 +131,6 @@ components installed.
 
 You can then run the demo using the docker image run commands above by replacing 
 `repronim/simple_workflow:latest` with `repronim:simple_prep_${USER}_jessie_20150306T060524Z`
-(`${USER}`
 
 ### 4. Other containers
 
