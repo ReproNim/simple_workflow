@@ -179,7 +179,7 @@ if  __name__ == '__main__':
     meta_wf.base_dir = work_dir
     meta_wf.config['execution']['remove_unnecessary_files'] = False
     meta_wf.config['execution']['poll_sleep_duration'] = 2
-    meta_wf.config['execution']['crashdump_dir'] = args.work_dir
+    meta_wf.config['execution']['crashdump_dir'] = work_dir
     if args.plugin_args:
         meta_wf.run(args.plugin, plugin_args=eval(args.plugin_args))
     else:
