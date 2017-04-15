@@ -52,7 +52,7 @@ The script will check for availability of the following:
 #### Download the script
 
 ```bash
-curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/f5c6a2d96a0697bf634379749f862c2aa95990f5/Simple_Prep.sh
+curl -Ok https://github.com/ReproNim/simple_workflow/blob/f45865adf0e2a80015f9825b0f857befa3d3ac3b/Simple_Prep.sh
 ```
 
 #### Setup the environment. 
