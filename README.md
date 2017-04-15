@@ -134,5 +134,5 @@ You can then run the demo using the docker image run commands above by replacing
 
 ### 4. Other containers
 
-You can also using [Singularity](http://singularity.lbl.gov/) to run the docker 
+You can also use [Singularity](http://singularity.lbl.gov/) to run the docker 
 image from DockerHub.
