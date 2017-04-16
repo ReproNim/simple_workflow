@@ -15,16 +15,48 @@ def download_file(url):
     """Download file for a given participant"""
     import requests
     import os
+    from time import sleep
+    num_retries = 5
     URL = 'http://www.nitrc.org/ir/'
-    session = requests.session()
-    r = session.get(URL)
-    local_filename = url.split('/')[-1]
-    r = session.get(url, stream=True, cookies=r.cookies)
-    with open(local_filename, 'wb') as f:
-        for chunk in r.iter_content(chunk_size=1024): 
-            if chunk: # filter out keep-alive new chunks
-                f.write(chunk)    
-    return os.path.abspath(local_filename)
+    count = 0
+    while count < num_retries:
+        count += 1
+        session = requests.session()
+        r = session.get(URL)
+        if r.ok:
+            break
+        else:
+            sleep(10)
+            if count == num_retries:
+                raise IOError('Could not create a session for {}'.format(URL))
+    count = 0
+    while count < num_retries:
+        count += 1
+        local_filename = url.split('/')[-1]
+        r = session.get(url, stream=True, cookies=r.cookies)
+        if not r.ok:
+            if count == num_retries:
+                raise IOError('Could not GET {}'.format(url))
+            else:
+                sleep(5)
+                continue
+        with open(local_filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024):
+                if chunk: # filter out keep-alive new chunks
+                    f.write(chunk)
+        # verify that we can load the file
+        out_file = os.path.abspath(local_filename)
+        try:
+            import nibabel as nb
+            img = nb.load(out_file)
+        except Exception as e:
+            os.unlink(out_file)
+            if count == num_retries:
+                raise
+            sleep(5)
+        else:
+            break
+    return out_file
 
 def toJSON(stats, seg_file, structure_map):
     """Combine stats files to a single JSON file"""
