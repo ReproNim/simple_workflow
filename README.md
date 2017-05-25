@@ -118,8 +118,24 @@ you would like to browse it, please "knock" first by running
 
 #### Generate an environment
 
-For an example we will generate an environment based on Debian jessie
-release with FSL 5.0.8-3 as it was available in March of 2015:
+For the current test data, we generated an environment based on Debian jessie 
+release with FSL 5.0.9 that was available in April 2017:
+
+```bash
+/Simple_Prep_docker jessie 20170410T000000Z
+```
+which will generate a local docker image `repronim:simple_prep_${USER}_jessie_20170410T000000Z`
+(`${USER}` will correspond to your user name), with all necessary for computation
+components installed.
+
+You can then run the demo using the docker image run commands above by replacing 
+`repronim/simple_workflow:latest` with `repronim:simple_prep_${USER}_jessie_20170410T000000Z`
+
+##### Changing the FSL version
+
+You can also generate an environment based on Debian jessie
+release with FSL 5.0.8-3 as it was available in March of 2015 by 
+simply changing the timestamp:
 
 ```bash
 ./Simple_Prep_docker jessie 20150306T060524Z
