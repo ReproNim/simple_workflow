@@ -42,12 +42,12 @@ if [ ! -e scripts/expected_output ]; then
     echo "Getting the analysis repo"
     if [ $(command -v git) ]; then
        git clone https://github.com/ReproNim/simple_workflow scripts
-       # TODO: add git checkout of specific hash when finalized
+       cd scripts
+       git checkout a26e0c01227c8baa0756b9e95a0442d69e9c9e10
     elif [ $(command -v unzip) ]; then
-       curl -ssL -o workdir.zip https://github.com/ReproNim/simple_workflow/archive/master.zip
-       # TODO: add download of specific commit hash when finalized
+       curl -ssL -o workdir.zip https://github.com/ReproNim/simple_workflow/archive/a26e0c01227c8baa0756b9e95a0442d69e9c9e10.zip
        unzip workdir.zip && rm workdir.zip
-       mv simple_workflow-master scripts
+       mv simple_workflow-a26e0c01227c8baa0756b9e95a0442d69e9c9e10 scripts
     else
        echo "Neither git not unzip available. Cannot download scripts"
        exit 1
