@@ -70,7 +70,7 @@ if __name__ == "__main__":
         df_diff = df_diff.dropna()
     df_diff.to_csv('output/Difference.csv')
 
-    if np.allclose(df_diff, 0):
+    if np.allclose(df_diff, 0, rtol=1e-05, atol=1e-08):
         print('Outputs MATCH')
     else:
         print('Outputs are not close enough. Printing difference')
