@@ -6,6 +6,26 @@ from glob import glob
 import pandas as pd
 import numpy as np
 
+def creating_dataframe(files_list):
+    """ reads every json file from the files_list and creates one data frame """ 
+    outputmap = {0: 'voxels', 1: 'volume'}
+
+    df = pd.DataFrame()
+    for filename in files_list:
+        with open(filename, 'rt') as fp:
+            in_dict = json.load(fp)
+            subject = filename.split(os.path.sep)[1]
+            in_dict_mod = {}
+            for k, v in in_dict.items():
+                if isinstance(v, list):
+                    for idx, value in enumerate(v):
+                        in_dict_mod["%s_%s" % (k, outputmap[idx])] = value
+                else:
+                    in_dict_mod[k] = v
+            df[subject] = pd.Series(in_dict_mod)
+    return df.T
+
+
 if __name__ == "__main__":
     from argparse import ArgumentParser, RawTextHelpFormatter
     defstr = ' (default %(default)s)'
@@ -29,42 +49,13 @@ if __name__ == "__main__":
         print('Mismatch in number of expected (%d) and actual (%d) output files' % (len(expected_files),
                                                                                     len(output_files)))
 
-    outputmap = {0: 'voxels', 1: 'volume'}
+    df_exp = creating_dataframe(expected_files)
+    df_out = creating_dataframe(output_files)
 
-    df = pd.DataFrame()
-    for filename in expected_files:
-        with open(filename, 'rt') as fp:
-            in_dict = json.load(fp)
-            subject = filename.split(os.path.sep)[1]
-            in_dict_mod = {}
-            for k, v in in_dict.items():
-                if isinstance(v, list):
-                    for idx, value in enumerate(v):
-                        in_dict_mod["%s_%s" % (k, outputmap[idx])] = value
-                else:
-                    in_dict_mod[k] = v
-            df[subject] = pd.Series(in_dict_mod)
-    df = df.T
-
-    df_out = pd.DataFrame()
-    for filename in output_files:
-        with open(filename, 'rt') as fp:
-            in_dict = json.load(fp)
-            subject = filename.split(os.path.sep)[1]
-            in_dict_mod = {}
-            for k, v in in_dict.items():
-                if isinstance(v, list):
-                    for idx, value in enumerate(v):
-                        in_dict_mod["%s_%s" % (k, outputmap[idx])] = value
-                else:
-                    in_dict_mod[k] = v
-            df_out[subject] = pd.Series(in_dict_mod)
-    df_out = df_out.T
-
-    df.to_csv('output/ExpectedOutput.csv')
+    df_exp.to_csv('output/ExpectedOutput.csv')
     df_out.to_csv('output/ActualOutput.csv')
 
-    df_diff = df - df_out
+    df_diff = df_exp - df_out
 
     if args.nanignore:
         df_diff = df_diff.dropna()
