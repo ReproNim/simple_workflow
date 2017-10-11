@@ -22,10 +22,16 @@ echo "FSL bet is available"
 
 # Check if first models are available
 
-if ! /bin/ls $FSLDIR/data/first/models* | grep -q .; then
+if ! /bin/ls $FSLDIR/data/first/models* >/dev/null; then
     errorout "No first data found (fsl-first-data package on Debians)"
 fi
 echo "FSL first data found"
+
+if ! /bin/ls $FSLDIR/data/standard/MNI152_T1_1mm.nii.gz >/dev/null; then
+    errorout "No FSL MNI templates found (fsl-mni152-templates package on Debians)"
+fi
+echo "FSL MNI templates found"
+
 
 # Check if curl is available
 [ ! $(command -v curl) ] && echo "No curl: Make sure a version of curl is installed and available." && kill -INT $$
