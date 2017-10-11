@@ -2,15 +2,30 @@
 
 set -e
 
+function errorout() {
+    echo
+    echo "ERROR: $@" >&2
+    echo "Exiting"
+    echo
+    kill -INT $$
+}
+
 # Check if FSL is available
 if [ ! $(command -v bet) ]; then
     if [ -f /etc/fsl/fsl.sh ]; then
         source /etc/fsl/fsl.sh
     else
-        echo "No bet: Make sure an FSL version - https://fsl.fmrib.ox.ac.uk/ - is installed and available." && kill -INT $$
+        errorout "No bet: Make sure an FSL version - https://fsl.fmrib.ox.ac.uk/ - is installed and available."
     fi
 fi
 echo "FSL bet is available"
+
+# Check if first models are available
+
+if ! /bin/ls $FSLDIR/data/first/models* | grep -q .; then
+    errorout "No first data found (fsl-first-data package on Debians)"
+fi
+echo "FSL first data found"
 
 # Check if curl is available
 [ ! $(command -v curl) ] && echo "No curl: Make sure a version of curl is installed and available." && kill -INT $$
