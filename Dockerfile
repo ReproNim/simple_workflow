@@ -27,7 +27,7 @@ RUN bash -c "sed -i -e 's,http://neuro.debian.net/debian/* ,http://snapshot-neur
 RUN bash -c "curl -s http://neuro.debian.net/_files/knock-snapshots;"
 RUN bash -c "eatmydata apt-get update; eatmydata apt-get dist-upgrade -y;"
 # We might be just fine with the core here
-RUN bash -c "eatmydata apt-get install -y -q fsl-core fsl-first-data"
+RUN bash -c "eatmydata apt-get install -y -q fsl-core fsl-first-data fsl-mni152-templates"
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /boot /media /mnt /srv
