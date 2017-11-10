@@ -1,6 +1,6 @@
 **Integration Testing:** [![CircleCI](https://circleci.com/gh/ReproNim/simple_workflow.svg?style=svg)](https://circleci.com/gh/ReproNim/simple_workflow)
 
-**Note:** This demo is intended to run on OS X and GNU/Linux environments.
+**Note:** This demo was updated at the traiing evernt and is intended to run on OS X and GNU/Linux environments.
 
 #### Information queried from NITRC-IR and stored in a google spreadsheet
 https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
