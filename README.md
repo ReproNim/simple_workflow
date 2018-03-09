@@ -2,6 +2,8 @@
 
 **Note:** This demo is intended to run on OS X and GNU/Linux environments, but you can use the Docker container to run on any system you can run Docker or Singularity on.
 
+**Note:** This is the GitHub Repo that accompanies: Ghosh SS, Poline JB, Keator DB et al. A very simple, re-executable neuroimaging publication [version 2; referees: 1 approved, 3 approved with reservations]. F1000Research 2017, 6:124 (doi: 10.12688/f1000research.10783.2)
+
 ### Notice for commercial use
 
 The following non-free Debian packages are part of the Docker container:
