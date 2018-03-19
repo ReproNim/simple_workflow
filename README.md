@@ -153,14 +153,13 @@ You can then run the demo using the docker image run commands above by replacing
 ### 4. Other containers
 
 You can also use [Singularity](http://singularity.lbl.gov/) to run the docker 
-image from DockerHub. The following commands require the development branch (post release 2.2)
-or release 2.3.
+image from DockerHub. The following commands require Singularity v2.4.3 or later.
 
 ```bash
 singularity build repronim.img docker://repronim/simple_workflow:latest
-singularity run -B $PWD/output:/opt/repronim/simple_workflow/scripts/output \
+singularity run -B $PWD/output:/opt/repronim/simple_workflow/scripts/output -c \
   --pwd /opt/repronim/simple_workflow/scripts/ repronim.img run_demo_workflow.py \
   --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1
-singularity run -B $PWD/output:/opt/repronim/simple_workflow/scripts/output \
+singularity run -B $PWD/output:/opt/repronim/simple_workflow/scripts/output -c \
   --pwd /opt/repronim/simple_workflow/scripts/ repronim.img check_output.py --ignoremissing
 ```
