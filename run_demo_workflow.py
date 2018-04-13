@@ -71,7 +71,7 @@ def toJSON(stats, seg_file, structure_map):
     reverse_map = {k:v for v, k in structure_map}
     out_dict = dict(zip([reverse_map[val] for val in idx], np.bincount(data.flatten())[idx]))
     for key in out_dict.keys():
-        out_dict[key] = [out_dict[key], voxel2vol * out_dict[key]]
+        out_dict[key] = [int(out_dict[key]), voxel2vol * out_dict[key]]
     mapper = dict([(0, 'csf'), (1, 'gray'), (2, 'white')])
     out_dict.update(**{mapper[idx]: val for idx, val in enumerate(stats)})
     out_file = 'segstats.json'
@@ -181,16 +181,20 @@ if  __name__ == '__main__':
     else:
         work_dir = sink_dir
 
-    from StringIO import StringIO  # got moved to io in python3.
-
+    import sys
     import requests
     import pandas as pd
 
     #key = '11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA'
     r = requests.get('https://docs.google.com/spreadsheets/d/{key}/export?format=csv&id={key}'.format(key=args.key))
-    data = r.content
+    if sys.version_info < (3,):
+        from StringIO import StringIO  # got moved to io in python3.
+        data = StringIO(r.content)
+    else:
+        from io import StringIO
+        data = StringIO(r.content.decode())
 
-    df = pd.read_csv(StringIO(data))
+    df = pd.read_csv(data)
     max_subjects = df.shape[0]
     if args.num_subjects:
         max_subjects = args.num_subjects
