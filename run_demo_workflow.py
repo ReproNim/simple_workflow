@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 """Run a demo workflow that retrieves brain images and processes them
 
 """
