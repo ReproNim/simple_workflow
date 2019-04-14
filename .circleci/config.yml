@@ -1,0 +1,71 @@
+version: 2
+
+jobs:
+  build:
+    machine:
+      image: circleci/classic:201711-01
+      docker_layer_caching: true
+    working_directory: /tmp/simple_workflow
+    steps:
+      - restore_cache:
+          keys:
+            - docker-v1
+          paths:
+            - ${HOME}/docker/cache.tar
+            - ${HOME}/.apt-cache
+      - checkout
+      - run:
+          name: create/save docker image
+          no_output_timeout: 60m
+          command: |
+            # USER is not automatically defined (required for Simple_Prep_docker)
+            echo "export USER=$(whoami)" >> ${HOME}/.circlerc
+            source ${HOME}/.circlerc
+            # check if docker image already exists and load it
+            mkdir -p ${HOME}/docker
+            if [[ -e "${HOME}/docker/cache.tar" ]]; then 
+              docker load --input ${HOME}/docker/cache.tar
+            fi
+            # list existing docker images
+            docker images
+            # build and tag the docker image
+            /tmp/simple_workflow/Simple_Prep_docker jessie 20170410T000000Z
+            repronimtag=repronim:$(docker images repronim | tail -n 1 | awk '{print $2}')
+            echo "export repronimtag=$repronimtag" >> ${HOME}/.circlerc
+            echo $repronimtag
+            # save the docker image for caching
+            docker save -o ${HOME}/docker/cache.tar $repronimtag
+
+      - save_cache:
+         key: docker-v1
+         paths:
+            - ${HOME}/docker/cache.tar
+            - ${HOME}/.apt-cache
+
+      - run:
+          name: test outputs
+          no_output_timeout: 60m
+          command: |
+            # separate shell, need to source variables defined in previous "run"
+            source ${HOME}/.circlerc
+            echo $repronimtag
+            # make the output directory (may not be necessary)
+            mkdir -p ${HOME}/output
+            docker run -it --rm -v ${HOME}/output:/opt/repronim/simple_workflow/scripts/output $repronimtag run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 2
+            docker run -it --rm -v ${HOME}/output:/opt/repronim/simple_workflow/scripts/output $repronimtag check_output.py --ignoremissing | tee ${HOME}/log.txt
+            cat ${HOME}/log.txt && if grep -q "MATCH" ${HOME}/log.txt; then true; else false; fi
+
+      - store_artifacts:
+          path: /home/circleci/log.txt
+      - store_artifacts:
+          path: /home/circleci/output/ActualOutput.csv
+      - store_artifacts:
+          path: /home/circleci/output/Difference.csv
+      - store_artifacts:
+          path: /home/circleci/output/ExpectedOutput.csv
+
+workflows:
+    version: 2
+    simple_ci:
+        jobs:
+          - build
