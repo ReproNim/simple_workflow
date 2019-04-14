@@ -56,13 +56,13 @@ jobs:
             cat ${HOME}/log.txt && if grep -q "MATCH" ${HOME}/log.txt; then true; else false; fi
 
       - store_artifacts:
-          path: ${HOME}/log.txt
+          path: /home/circleci/log.txt
       - store_artifacts:
-          path: ${HOME}/output/ActualOutput.csv
+          path: /home/circleci/output/ActualOutput.csv
       - store_artifacts:
-          path: ${HOME}/output/Difference.csv
+          path: /home/circleci/output/Difference.csv
       - store_artifacts:
-          path: ${HOME}/output/ExpectedOutput.csv
+          path: /home/circleci/output/ExpectedOutput.csv
 
 workflows:
     version: 2
