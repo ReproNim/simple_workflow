@@ -23,27 +23,24 @@ RUN apt-get install -y -q eatmydata
 # Some rudimentary tools if we need to do anything within docker and curl and unzip needed for setting up conda
 RUN bash -c "eatmydata apt-get install -y -q vim less man-db curl unzip bzip2"
 # Run additional lines, primarily to setup/enable snapshots repository etc
-RUN bash -c "DL_APT"
+RUN bash -c "sed -i -e 's,http://neuro.debian.net/debian/* ,http://snapshot-neuro.debian.net:5002/archive/neurodebian/20170410T000000Z/ ,g' etc/apt/sources.list.d/neurodebian.sources.list"
+RUN bash -c "curl -s http://neuro.debian.net/_files/knock-snapshots;"
+RUN bash -c "eatmydata apt-get update; eatmydata apt-get dist-upgrade -y;"
 # We might be just fine with the core here
-RUN bash -c "eatmydata apt-get install -y -q fsl-core fsl-first-data"
+RUN bash -c "eatmydata apt-get install -y -q fsl-core fsl-first-data fsl-mni152-templates"
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /boot /media /mnt /srv
 
 # Setting up conda environment given simple_workflow specifications
-RUN mkdir /opt/repronim && mkdir /opt/repronim/simple_workflow && \
-    mkdir /opt/repronim/simple_workflow/scripts
-WORKDIR /opt/repronim/
+RUN mkdir -p /opt/repronim/simple_workflow/niflow-simple-workflow
+COPY niflow-simple-workflow /opt/repronim/simple_workflow/niflow-simple-workflow
 # RUN curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb494da496565ec27c4ffe8a4901c45/Simple_Prep.sh
-COPY Simple_Prep.sh ./
-WORKDIR /opt/repronim/simple_workflow/scripts
-COPY environment.yml ./
-COPY expected_output expected_output
-COPY *.py ./
-WORKDIR /opt/repronim/
-RUN bash Simple_Prep.sh
+COPY Simple_Prep.sh /opt/repronim/simple_workflow/
+COPY environment.yml /opt/repronim/simple_workflow/
+RUN cd /opt/repronim/simple_workflow/ && bash Simple_Prep.sh
 
-WORKDIR /opt/repronim/simple_workflow/scripts
-COPY startup.sh ./
-RUN chmod +x startup.sh
-ENTRYPOINT ["/opt/repronim/simple_workflow/scripts/startup.sh"]
+COPY startup.sh /opt/repronim/simple_workflow/
+RUN chmod +x /opt/repronim/simple_workflow/startup.sh
+WORKDIR /opt/repronim/simple_workflow/niflow-simple-workflow/test/scripts
+ENTRYPOINT ["/opt/repronim/simple_workflow/startup.sh"]

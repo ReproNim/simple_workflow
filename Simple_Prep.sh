@@ -37,9 +37,6 @@ echo "FSL MNI templates found"
 [ ! $(command -v curl) ] && echo "No curl: Make sure a version of curl is installed and available." && kill -INT $$
 echo "curl is available"
 
-echo "Creating local directory simple_workflow to create and execute environment"
-mkdir -p simple_workflow && cd simple_workflow
-
 # Setup standalone python environment
 echo "Setting up standalone conda Python environment"
 
@@ -57,24 +54,6 @@ if [ ! -e miniconda ]; then
     rm miniconda.sh
 fi
 PATH=$PWD/miniconda/bin:$PATH
-
-# Get the repo and Create the specific versioned python environment
-if [ ! -e scripts/expected_output ]; then
-    echo "Getting the analysis repo"
-    if [ $(command -v git) ]; then
-       git clone https://github.com/ReproNim/simple_workflow scripts
-       cd scripts
-       git checkout a26e0c01227c8baa0756b9e95a0442d69e9c9e10
-    elif [ $(command -v unzip) ]; then
-       curl -ssL -o workdir.zip https://github.com/ReproNim/simple_workflow/archive/a26e0c01227c8baa0756b9e95a0442d69e9c9e10.zip
-       unzip workdir.zip && rm workdir.zip
-       mv simple_workflow-a26e0c01227c8baa0756b9e95a0442d69e9c9e10 scripts
-    else
-       echo "Neither git not unzip available. Cannot download scripts"
-       exit 1
-    fi
-fi
-
 echo "Creating and activating versioned Python environment"
 if [ ! -e miniconda/envs/bh_demo/bin/nipype_display_crash ]; then
     if [ -e miniconda/envs/bh_demo/ ]; then
@@ -93,21 +72,26 @@ to check.
 
 ---- END SIMPLE_PREP SCRIPT WARNING ----"
     fi
-    conda env create -f scripts/environment.yml
+    conda env create -f environment.yml
     conda clean -tipsy
 fi
 
+# install niflow-simple-workflow
+PATH=$PWD/miniconda/envs/bh_demo/bin:$PATH
+cd "$PWD"/niflow-simple-workflow/package &&\
+python setup.py install
+cd -
+# optional arguments to run the demo workflow (not mandatory)
 if [ "$1" == "test" ]; then
-    PATH=$PWD/miniconda/envs/bh_demo/bin:$PATH
-    cd scripts
-    python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 && \
-    python check_output.py --ignoremissing
+    
+    niflow-simple-workflow --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 \
+      -o "$PWD"/niflow-simple-workflow/test/output && \
+    python niflow-simple-workflow/test/scripts/check_output.py --ignoremissing
 fi
 if [ "$1" == "replay" ]; then
-    PATH=$PWD/miniconda/envs/bh_demo/bin:$PATH
-    cd scripts
-    python run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA && \
-    python check_output.py
+    niflow-simple-workflow --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA \
+      -o "$PWD"/niflow-simple-workflow/test/output && \
+    python niflow-simple-workflow/test/scripts/check_output.py
 fi
 
 export PATH
