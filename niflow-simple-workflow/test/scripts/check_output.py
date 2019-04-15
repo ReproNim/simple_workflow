@@ -36,12 +36,12 @@ if __name__ == "__main__":
                         help="Ignore missing subjects when comparing")
     args = parser.parse_args()
 
-    expected_files = sorted(glob('expected_output/*/segstats.json'))
+    expected_files = sorted(glob('../expected/*/segstats.json'))
 
     if len(expected_files) < 24:
         raise ValueError('Expected 24 files, but only %d files exist' % len(expected_files))
 
-    output_files = sorted(glob('output/*/segstats.json'))
+    output_files = sorted(glob('../output/*/segstats.json'))
     if len(output_files) == 0:
         raise ValueError('Output has no files')
 
@@ -52,14 +52,14 @@ if __name__ == "__main__":
     df_exp = creating_dataframe(expected_files)
     df_out = creating_dataframe(output_files)
 
-    df_exp.to_csv('output/ExpectedOutput.csv')
-    df_out.to_csv('output/ActualOutput.csv')
+    df_exp.to_csv('../output/ExpectedOutput.csv')
+    df_out.to_csv('../output/ActualOutput.csv')
 
     df_diff = df_exp - df_out
 
     if args.nanignore:
         df_diff = df_diff.dropna()
-    df_diff.to_csv('output/Difference.csv')
+    df_diff.to_csv('../output/Difference.csv')
 
     if np.allclose(df_diff, 0, rtol=1e-05, atol=1e-08):
         print('Outputs MATCH')
@@ -79,7 +79,7 @@ if __name__ == "__main__":
          FILTER (?fslversion != 'Unknown')
     }  
     """
-    prov_files = sorted(glob('expected_output/workflow_prov*.trig'))
+    prov_files = sorted(glob('../expected/workflow_prov*.trig'))
 
     g = rl.ConjunctiveGraph()
     g.parse(prov_files[0], format='trig')
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     print("Original platform: {}".format(str(res.bindings[0]['platform'])))
     print("Original FSL version: {}".format(str(res.bindings[0]['fslversion'])))
 
-    prov_files = sorted(glob('output/workflow_prov*.trig'))
+    prov_files = sorted(glob('../output/workflow_prov*.trig'))
 
     g = rl.ConjunctiveGraph()
     g.parse(prov_files[-1], format='trig')
