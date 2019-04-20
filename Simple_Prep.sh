@@ -76,22 +76,22 @@ to check.
     conda clean -tipsy
 fi
 
-# install niflow-simple-workflow
+# install niflow-repronim-simple1
 PATH=$PWD/miniconda/envs/bh_demo/bin:$PATH
-cd "$PWD"/niflow-simple-workflow/package &&\
+cd "$PWD"/niflow-repronim-simple1/package &&\
 python setup.py install
 cd -
 # optional arguments to run the demo workflow (not mandatory)
 if [ "$1" == "test" ]; then
     
-    niflow-simple-workflow --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 \
-      -o "$PWD"/niflow-simple-workflow/test/output && \
-    python niflow-simple-workflow/test/scripts/check_output.py --ignoremissing
+    niflow-repronim-simple1 --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 \
+      -o "$PWD"/niflow-repronim-simple1/test/output && \
+    python niflow-repronim-simple1/test/scripts/check_output.py --ignoremissing
 fi
 if [ "$1" == "replay" ]; then
-    niflow-simple-workflow --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA \
-      -o "$PWD"/niflow-simple-workflow/test/output && \
-    python niflow-simple-workflow/test/scripts/check_output.py
+    niflow-repronim-simple1 --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA \
+      -o "$PWD"/niflow-repronim-simple1/test/output && \
+    python niflow-repronim-simple1/test/scripts/check_output.py
 fi
 
 export PATH
