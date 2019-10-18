@@ -1,5 +1,6 @@
 name: bh_demo
 channels:
+- anaconda
 - conda-forge
 - defaults
 dependencies:
