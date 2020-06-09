@@ -1,0 +1,1843 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix niiri: <http://iri.nidash.org/> .
+@prefix nipype: <http://nipy.org/nipype/terms/> .
+@prefix ns1: <http://iri.nidash.org/565100> .
+@prefix ns2: <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/> .
+@prefix ns3: <http://iri.nidash.org/5> .
+@prefix ns4: <http://iri.nidash.org/4> .
+@prefix ns5: <http://iri.nidash.org/56> .
+@prefix ns6: <http://iri.nidash.org/59> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:acaa6a11ea918b0242ac110002 {
+    <http://iri.nidash.org/48729d1aaa6a11eab3c20242ac110002> a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:ae397ecaecb75e1303d72f87779fdd60,
+            niiri:e5692843450c8e664dfe4b40a35647de,
+            niiri:ff327a6a28679dc5e106e4478658fc24 .
+
+    <http://iri.nidash.org/489d2fe4aa6a11eab3c20242ac110002> a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/098432f9d932a69903e49f00d4969eae> ;
+        prov:wasGeneratedBy <http://iri.nidash.org/486c3222aa6a11eab3c20242ac110002> .
+
+    <http://iri.nidash.org/48c406beaa6a11eab3c20242ac110002> a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:wasGeneratedBy <http://iri.nidash.org/486c3222aa6a11eab3c20242ac110002> .
+
+    niiri:d2f32118c510f6e5f27c77aaa24bc232 a prov:Entity ;
+        ns2:sha512 "caee3dd25ffd9255180b7e0fa972fe6b5b0fa3c97b2a928472c79478d1d351b27ef42e4e69f4dd6f57aa6ebcc00623ef542deb620b4f73653a10aface44cc629"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segs/scan_mprage_anonymized_reoriented_brain_seg.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segs/scan_mprage_anonymized_reoriented_brain_seg.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/098432f9d932a69903e49f00d4969eae> a prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "out_file"^^xsd:string ;
+                nipype:outPort "out_file"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/486c3222aa6a11eab3c20242ac110002> ] ;
+        prov:value "[\"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segs/scan_mprage_anonymized_reoriented_brain_seg.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented_all_none_firstseg.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segstats.json\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Hipp_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Hipp_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Accu_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Accu_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Amyg_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Amyg_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Caud_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Caud_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Pall_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Pall_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Puta_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Puta_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Thal_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Thal_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/brain/scan_mprage_anonymized_reoriented_brain.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented_all_none_origsegs.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segs/scan_mprage_anonymized_reoriented_brain_pve_0.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segs/scan_mprage_anonymized_reoriented_brain_pve_1.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segs/scan_mprage_anonymized_reoriented_brain_pve_2.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/segs/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Hipp_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Hipp_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Accu_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Accu_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Amyg_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Amyg_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Caud_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Caud_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Pall_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Pall_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Puta_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Puta_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-L_Thal_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960/parcels/segmented-R_Thal_first.vtk\"]"^^xsd:string .
+
+    <http://iri.nidash.org/486c41eaaa6a11eab3c20242ac110002> a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    niiri:ae397ecaecb75e1303d72f87779fdd60 a prov:Entity ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/AnnArbor_sub16960"^^xsd:anyURI .
+
+    niiri:e5692843450c8e664dfe4b40a35647de a prov:Entity ;
+        prov:value 1 .
+
+    niiri:ff327a6a28679dc5e106e4478658fc24 a prov:Entity ;
+        prov:value "{\"segs.@tissue_map\": \"file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_seg.nii.gz\", \"parcels.@segfile\": \"file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_firstseg.nii.gz\", \"segs.@tissue_files\": \"Unknown\", \"segs.@restored\": \"Unknown\", \"@stats\": \"file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/save_json/segstats.json\", \"segs.@bias_field\": \"Unknown\", \"parcels.@bvars\": \"[\\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Hipp_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Accu_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Accu_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Amyg_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Amyg_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Caud_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Caud_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Pall_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Pall_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Puta_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Puta_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Thal_first.bvars\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Thal_first.bvars\\\"]\", \"brain\": \"file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/extract_brain/scan_mprage_anonymized_reoriented_brain.nii.gz\", \"parcels.@origsegs\": \"file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_origsegs.nii.gz\", \"segs.@partial_files\": \"[\\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_0.nii.gz\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_1.nii.gz\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_2.nii.gz\\\"]\", \"segs.@partial_map\": \"file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz\", \"segs.@prob_maps\": \"Unknown\", \"parcels.@vtk\": \"[\\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Hipp_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Accu_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Accu_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Amyg_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Amyg_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Caud_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Caud_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Pall_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Pall_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Puta_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Puta_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Thal_first.vtk\\\", \\\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Thal_first.vtk\\\"]\"}"^^xsd:string .
+
+    <http://iri.nidash.org/486c3222aa6a11eab3c20242ac110002> a nipype:NipypeInterfacesIoDatasink,
+            prov:Activity ;
+        rdfs:label "DataSink"^^xsd:string ;
+        nipype:duration "26.77359"^^xsd:float ;
+        nipype:interface "DataSink"^^xsd:string ;
+        nipype:module "nipype.interfaces.io"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode "Unknown"^^xsd:string ;
+        nipype:version "Unknown"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/store_results"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T16:00:04.610524"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "_outputs"^^xsd:string ;
+                nipype:inPort "_outputs"^^xsd:string ;
+                prov:entity niiri:ff327a6a28679dc5e106e4478658fc24 ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ],
+            [ a prov:Usage ;
+                rdfs:label "base_directory"^^xsd:string ;
+                nipype:inPort "base_directory"^^xsd:string ;
+                prov:entity niiri:ae397ecaecb75e1303d72f87779fdd60 ],
+            [ a prov:Usage ;
+                rdfs:label "parameterization"^^xsd:string ;
+                nipype:inPort "parameterization"^^xsd:string ;
+                prov:entity niiri:e5692843450c8e664dfe4b40a35647de ],
+            [ a prov:Usage ;
+                rdfs:label "remove_dest_dir"^^xsd:string ;
+                nipype:inPort "remove_dest_dir"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ] ;
+        prov:startedAtTime "2020-06-09T15:59:45.733165"^^xsd:dateTime ;
+        prov:used <http://iri.nidash.org/486c41eaaa6a11eab3c20242ac110002> ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+}
+
+ns4:d051934aa6a11ea918b0242ac110002 {
+    ns4:ce127a4aa6a11ea918b0242ac110002 a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/0c3de847798dfcbe5efe033843c766eb>,
+            <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:a7817bd8f38fcec57a1ecf7e238a3e57,
+            niiri:af374650694ce9f49a897abcc556901d,
+            niiri:f61eda266ca7eccca955d8744260b3d9 .
+
+    ns4:d04d122aa6a11ea918b0242ac110002 a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/240c1441c1a22cc70ea1e7f0844f2cc6> ;
+        prov:wasGeneratedBy ns4:ce0f388aa6a11ea918b0242ac110002 .
+
+    ns4:d04e072aa6a11ea918b0242ac110002 a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:hadMember ns4:d04e518aa6a11ea918b0242ac110002 ;
+        prov:wasGeneratedBy ns4:ce0f388aa6a11ea918b0242ac110002 .
+
+    ns4:d04e608aa6a11ea918b0242ac110002 a prov:Entity ;
+        rdfs:label "stdout"^^xsd:string ;
+        nipype:stdout """493954 592744.812500 
+"""^^xsd:string .
+
+    niiri:b963ef5f99a836a18b35b70849853e5e a prov:Entity ;
+        prov:value "493954.0"^^xsd:float .
+
+    <http://iri.nidash.org/240c1441c1a22cc70ea1e7f0844f2cc6> a prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "out_stat"^^xsd:string ;
+                nipype:outPort "out_stat"^^xsd:string ;
+                prov:activity ns4:ce0f388aa6a11ea918b0242ac110002 ] ;
+        prov:value "[493954.0, 592744.8125]"^^xsd:string .
+
+    ns4:ce10666aa6a11ea918b0242ac110002 a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/0c3de847798dfcbe5efe033843c766eb> a prov:Entity ;
+        prov:value "-l 1.5 -u 2.5 -v"^^xsd:string .
+
+    <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> a prov:Entity ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:a7817bd8f38fcec57a1ecf7e238a3e57 a prov:Entity ;
+        prov:value "allatonce"^^xsd:string .
+
+    niiri:af374650694ce9f49a897abcc556901d a prov:Entity ;
+        prov:value "{\"FSLOUTPUTTYPE\": \"NIFTI_GZ\"}"^^xsd:string .
+
+    niiri:f61eda266ca7eccca955d8744260b3d9 a prov:Entity ;
+        ns2:sha512 "a3a7ba2ea9e6da253f5036fba84683d13a1c6f926224735d2f84dac892a7611480ab95c21c017ddce9d02cd5ae680871fe5782dad6de65b336053a1ee3c8995e"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI .
+
+    ns4:ce0f388aa6a11ea918b0242ac110002 a nipype:NipypeInterfacesFslUtilsImagestats,
+            prov:Activity ;
+        rdfs:label "ImageStats"^^xsd:string ;
+        nipype:command "fslstats /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz -l 1.5 -u 2.5 -v"^^xsd:string ;
+        nipype:commandPath "file://e570209b66bf/usr/lib/fsl/5.0/fslstats"^^xsd:anyURI ;
+        nipype:dependencies """	linux-vdso.so.1 (0x00007ffc572c7000)
+	libnewimage.so => /usr/lib/fsl/5.0/libnewimage.so (0x00007f3dbe0a4000)
+	libmiscmaths.so => /usr/lib/fsl/5.0/libmiscmaths.so (0x00007f3dbde16000)
+	libprob.so => /usr/lib/fsl/5.0/libprob.so (0x00007f3dbdc0e000)
+	libfslio.so => /usr/lib/fsl/5.0/libfslio.so (0x00007f3dbda01000)
+	libnewmat.so.10 => /usr/lib/libnewmat.so.10 (0x00007f3dbd7a8000)
+	libutils.so => /usr/lib/fsl/5.0/libutils.so (0x00007f3dbd59b000)
+	libniftiio.so.2 => /usr/lib/libniftiio.so.2 (0x00007f3dbd379000)
+	libznz.so.2 => /usr/lib/libznz.so.2 (0x00007f3dbd175000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f3dbcf5a000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f3dbcc4f000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f3dbc94e000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f3dbc738000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f3dbc38d000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f3dbe447000)"""^^xsd:string ;
+        nipype:duration "8.46179"^^xsd:float ;
+        nipype:interface "ImageStats"^^xsd:string ;
+        nipype:module "nipype.interfaces.fsl.utils"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode 0 ;
+        nipype:version "5.0.9"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/compute_segment_stats/mapflow/_compute_segment_stats1"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:58:56.855630"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "environ"^^xsd:string ;
+                nipype:inPort "environ"^^xsd:string ;
+                prov:entity niiri:af374650694ce9f49a897abcc556901d ],
+            [ a prov:Usage ;
+                rdfs:label "op_string"^^xsd:string ;
+                nipype:inPort "op_string"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/0c3de847798dfcbe5efe033843c766eb> ],
+            [ a prov:Usage ;
+                rdfs:label "output_type"^^xsd:string ;
+                nipype:inPort "output_type"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ],
+            [ a prov:Usage ;
+                rdfs:label "in_file"^^xsd:string ;
+                nipype:inPort "in_file"^^xsd:string ;
+                prov:entity niiri:f61eda266ca7eccca955d8744260b3d9 ],
+            [ a prov:Usage ;
+                rdfs:label "terminal_output"^^xsd:string ;
+                nipype:inPort "terminal_output"^^xsd:string ;
+                prov:entity niiri:a7817bd8f38fcec57a1ecf7e238a3e57 ] ;
+        prov:startedAtTime "2020-06-09T15:58:55.109451"^^xsd:dateTime ;
+        prov:used ns4:ce10666aa6a11ea918b0242ac110002 ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
+ns4:c37abacaa6a11ea918b0242ac110002 {
+    <http://iri.nidash.org/82a9151aaa6811ea8b2e0242ac110002> a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/24a24e5086655d3f508cd14388e32fb5>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:b0bc349d6dda74ce1bae19ee007e2f09 .
+
+    <http://iri.nidash.org/82ae70beaa6811ea8b2e0242ac110002> a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> ;
+        prov:wasGeneratedBy <http://iri.nidash.org/829f57d2aa6811ea8b2e0242ac110002> .
+
+    <http://iri.nidash.org/838c9f60aa6811ea8b2e0242ac110002> a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:wasGeneratedBy <http://iri.nidash.org/829f57d2aa6811ea8b2e0242ac110002> .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    <http://iri.nidash.org/829f6ddaaa6811ea8b2e0242ac110002> a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> a prov:Entity ;
+        ns2:sha512 "8af6ec642f800136c4bb3fe9b77d59bb88b1f31d88db51ed752783b4a6c2be874304cc2cce15b70e80a7bda0611b3e24e40a344fdd4f149c9366419e52329978"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/download_url/scan_mprage_anonymized.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "localfile"^^xsd:string ;
+                nipype:outPort "localfile"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/829f57d2aa6811ea8b2e0242ac110002> ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/download_url/scan_mprage_anonymized.nii.gz"^^xsd:anyURI .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/24a24e5086655d3f508cd14388e32fb5> a prov:Entity ;
+        prov:value "http://www.nitrc.org/ir/data/experiments/xnat_E00005/scans/anat_mprage_anonymized/resources/11924/files/scan_mprage_anonymized.nii.gz"^^xsd:string .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:b0bc349d6dda74ce1bae19ee007e2f09 a prov:Entity ;
+        prov:value """def download_file(url):
+    \"\"\"Download file for a given participant\"\"\"
+    import requests
+    import os
+    from time import sleep
+    num_retries = 5
+    URL = 'http://www.nitrc.org/ir/'
+    count = 0
+    while count < num_retries:
+        count += 1
+        session = requests.session()
+        r = session.get(URL)
+        if r.ok:
+            break
+        else:
+            sleep(10)
+            if count == num_retries:
+                raise IOError('Could not create a session for {}'.format(URL))
+    count = 0
+    while count < num_retries:
+        count += 1
+        local_filename = url.split('/')[-1]
+        r = session.get(url, stream=True, cookies=r.cookies)
+        if not r.ok:
+            if count == num_retries:
+                raise IOError('Could not GET {}'.format(url))
+            else:
+                sleep(5)
+                continue
+        with open(local_filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024):
+                if chunk: # filter out keep-alive new chunks
+                    f.write(chunk)
+        # verify that we can load the file
+        out_file = os.path.abspath(local_filename)
+        try:
+            import nibabel as nb
+            img = nb.load(out_file)
+        except Exception as e:
+            os.unlink(out_file)
+            if count == num_retries:
+                raise
+            sleep(5)
+        else:
+            break
+    return out_file
+"""^^xsd:string .
+
+    <http://iri.nidash.org/829f57d2aa6811ea8b2e0242ac110002> a nipype:NipypeInterfacesUtilityFunction,
+            prov:Activity ;
+        rdfs:label "Function"^^xsd:string ;
+        nipype:duration "17.98754"^^xsd:float ;
+        nipype:interface "Function"^^xsd:string ;
+        nipype:module "nipype.interfaces.utility"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode "Unknown"^^xsd:string ;
+        nipype:version "Unknown"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/download_url"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:47:23.260994"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "function_str"^^xsd:string ;
+                nipype:inPort "function_str"^^xsd:string ;
+                prov:entity niiri:b0bc349d6dda74ce1bae19ee007e2f09 ],
+            [ a prov:Usage ;
+                rdfs:label "url"^^xsd:string ;
+                nipype:inPort "url"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/24a24e5086655d3f508cd14388e32fb5> ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ] ;
+        prov:startedAtTime "2020-06-09T15:47:12.462240"^^xsd:dateTime ;
+        prov:used <http://iri.nidash.org/829f6ddaaa6811ea8b2e0242ac110002> ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
+ns5:b63ab2aa6a11ea918b0242ac110002 {
+    <http://iri.nidash.org/2a72df3caa6a11ea966a0242ac110002> a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/01a0030613da047c5deba2f6fd9f4459>,
+            <http://iri.nidash.org/1ca06c8858d4f5804035dda14f73efe4>,
+            <http://iri.nidash.org/1ce3ce48e312a04d3e1a2b5cca520e67>,
+            <http://iri.nidash.org/2a9af3aaaa6a11ea966a0242ac110002>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> .
+
+    <http://iri.nidash.org/2a9c2266aa6a11ea966a0242ac110002> a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/07b80b1d698ada272dea246fed4b1c58> ;
+        prov:wasGeneratedBy <http://iri.nidash.org/2a6c258eaa6a11ea966a0242ac110002> .
+
+    <http://iri.nidash.org/2abb968caa6a11ea966a0242ac110002> a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:wasGeneratedBy <http://iri.nidash.org/2a6c258eaa6a11ea966a0242ac110002> .
+
+    <http://iri.nidash.org/3f664f1583c6eb3cee3e91141b1959e7> a prov:Entity ;
+        prov:value "162235.0"^^xsd:float .
+
+    <http://iri.nidash.org/77027116fea31bec04e16b6ef9768a51> a prov:Entity ;
+        prov:value "385731.0"^^xsd:float .
+
+    niiri:b963ef5f99a836a18b35b70849853e5e a prov:Entity ;
+        prov:value "493954.0"^^xsd:float .
+
+    niiri:dbe6c0e2dc485f2a6e828fff8bd01b2b a prov:Entity ;
+        prov:value """(S'Background'
+p0
+I0
+tp1
+."""^^nipype:pickle .
+
+    <http://iri.nidash.org/07b80b1d698ada272dea246fed4b1c58> a prov:Entity ;
+        ns2:sha512 "c0d3fd60fb220e755472ac1c317c6391e4e96b5ef2b867ba16b99508ced5fbf4c5c942319915a695103f6216c04ba97b15ddb20889e52be5b26f3b7822d655a7"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/save_json/segstats.json"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "out_file"^^xsd:string ;
+                nipype:outPort "out_file"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/2a6c258eaa6a11ea966a0242ac110002> ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/save_json/segstats.json"^^xsd:anyURI .
+
+    <http://iri.nidash.org/240c1441c1a22cc70ea1e7f0844f2cc6> a prov:Entity ;
+        prov:value "[493954.0, 592744.8125]"^^xsd:string .
+
+    <http://iri.nidash.org/2a6c3722aa6a11ea966a0242ac110002> a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    <http://iri.nidash.org/50da20c48b5294cba8388e75f3c9a29b> a prov:Entity ;
+        prov:value "[385731.0, 462877.21875]"^^xsd:string .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    niiri:e8cf6b9799c8838e6baf0e75aa1cc496 a prov:Entity ;
+        prov:value "[162235.0, 194682.0]"^^xsd:string .
+
+    <http://iri.nidash.org/01a0030613da047c5deba2f6fd9f4459> a prov:Entity ;
+        prov:value "[[\"Background\", 0], [\"Left-Thalamus-Proper\", 10], [\"Left-Caudate\", 11], [\"Left-Putamen\", 12], [\"Left-Pallidum\", 13], [\"Left-Hippocampus\", 17], [\"Left-Amygdala\", 18], [\"Left-Accumbens-area\", 26], [\"Right-Thalamus-Proper\", 49], [\"Right-Caudate\", 50], [\"Right-Putamen\", 51], [\"Right-Pallidum\", 52], [\"Right-Hippocampus\", 53], [\"Right-Amygdala\", 54], [\"Right-Accumbens-area\", 58]]"^^xsd:string .
+
+    <http://iri.nidash.org/1ca06c8858d4f5804035dda14f73efe4> a prov:Entity ;
+        ns2:sha512 "ed654b6739bef6e7fc2c691a68e06445890525f455dc59d860e8cc203a000b8bc998dd4df3b6b2eae8259a93b4977e0a90696a62686b1284e63c94ff0fdb2f51"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_firstseg.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_firstseg.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/1ce3ce48e312a04d3e1a2b5cca520e67> a prov:Entity ;
+        prov:value """def toJSON(stats, seg_file, structure_map):
+    \"\"\"Combine stats files to a single JSON file\"\"\"
+    import json
+    import os
+    import nibabel as nb
+    import numpy as np
+    img = nb.load(seg_file)
+    data = img.get_data()
+    voxel2vol = np.prod(img.header.get_zooms())
+    idx = np.unique(data)
+    reverse_map = {k:v for v, k in structure_map}
+    out_dict = dict(zip([reverse_map[val] for val in idx], np.bincount(data.flatten())[idx]))
+    for key in out_dict.keys():
+        out_dict[key] = [int(out_dict[key]), voxel2vol * out_dict[key]]
+    mapper = dict([(0, 'csf'), (1, 'gray'), (2, 'white')])
+    out_dict.update(**{mapper[idx]: val for idx, val in enumerate(stats)})
+    out_file = 'segstats.json'
+    with open(out_file, 'wt') as fp:
+        json.dump(out_dict, fp, sort_keys=True, indent=4, separators=(',', ': '))
+    return os.path.abspath(out_file)
+"""^^xsd:string .
+
+    <http://iri.nidash.org/2a9af3aaaa6a11ea966a0242ac110002> a prov:Collection,
+            prov:Entity ;
+        prov:hadMember <http://iri.nidash.org/240c1441c1a22cc70ea1e7f0844f2cc6>,
+            <http://iri.nidash.org/50da20c48b5294cba8388e75f3c9a29b>,
+            niiri:e8cf6b9799c8838e6baf0e75aa1cc496 .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    <http://iri.nidash.org/2a6c258eaa6a11ea966a0242ac110002> a nipype:NipypeInterfacesUtilityFunction,
+            prov:Activity ;
+        rdfs:label "Function"^^xsd:string ;
+        nipype:duration "6.37742"^^xsd:float ;
+        nipype:interface "Function"^^xsd:string ;
+        nipype:module "nipype.interfaces.utility"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode "Unknown"^^xsd:string ;
+        nipype:version "Unknown"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/save_json"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:59:14.274086"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "function_str"^^xsd:string ;
+                nipype:inPort "function_str"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/1ce3ce48e312a04d3e1a2b5cca520e67> ],
+            [ a prov:Usage ;
+                rdfs:label "stats"^^xsd:string ;
+                nipype:inPort "stats"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/2a9af3aaaa6a11ea966a0242ac110002> ],
+            [ a prov:Usage ;
+                rdfs:label "structure_map"^^xsd:string ;
+                nipype:inPort "structure_map"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/01a0030613da047c5deba2f6fd9f4459> ],
+            [ a prov:Usage ;
+                rdfs:label "seg_file"^^xsd:string ;
+                nipype:inPort "seg_file"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/1ca06c8858d4f5804035dda14f73efe4> ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ] ;
+        prov:startedAtTime "2020-06-09T15:59:13.636344"^^xsd:dateTime ;
+        prov:used <http://iri.nidash.org/2a6c3722aa6a11ea966a0242ac110002> ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
+ns6:e19e3eaa6a11ea918b0242ac110002 {
+    <http://iri.nidash.org/57308e0c4e61612e920d597158a44b18> a prov:Entity ;
+        ns2:sha512 "90f429c659832d42bc58ccd3f33cb804175b46ce0f62d47e4070987e5997415c5c5f6508acf1fffa16de119bbc49cf8187be51378c911ee7477f98e119e32210"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.vtk"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.vtk"^^xsd:anyURI .
+
+    <http://iri.nidash.org/7bcc9a1010c870d33ee87d941b497548> a prov:Entity ;
+        prov:value "L_Hipp"^^xsd:string .
+
+    <http://iri.nidash.org/97fbb126fa92cc6ea86cf1d9c49974b6> a prov:Entity ;
+        ns2:sha512 "5ab6f7c71e7003c9eb87be70cc7368b57ce1f7343e8a379da5afb2ff8de4e9aa9c0887021e96951fdd1f921d8507c1e4c310091e4fe909dd13d109f26d895d36"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.bvars"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.bvars"^^xsd:anyURI .
+
+    niiri:bbd0f654aa6911eab3c20242ac110002 a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/32f6de25727b78d0c165d79b0076f81b>,
+            <http://iri.nidash.org/340c7fd108eba876ac8ad0ddc7ca00fd>,
+            <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a>,
+            <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64>,
+            <http://iri.nidash.org/907e3d50a6fb515b5c16dc33e69090c5>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:a7817bd8f38fcec57a1ecf7e238a3e57,
+            niiri:af374650694ce9f49a897abcc556901d .
+
+    niiri:bc3a9d02aa6911eab3c20242ac110002 a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/01cdd45ac0b5414c6a286adba64f70b9>,
+            <http://iri.nidash.org/1ca06c8858d4f5804035dda14f73efe4>,
+            <http://iri.nidash.org/6aaa9a8ac313ff188f254e2a168aa058>,
+            niiri:cec952845207134ba20b763fbd75ffc5 ;
+        prov:wasGeneratedBy niiri:bbca2b58aa6911eab3c20242ac110002 .
+
+    niiri:bcc06e28aa6911eab3c20242ac110002 a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:hadMember niiri:bcc16d5aaa6911eab3c20242ac110002 ;
+        prov:wasGeneratedBy niiri:bbca2b58aa6911eab3c20242ac110002 .
+
+    niiri:bcc16eb8aa6911eab3c20242ac110002 a prov:Entity ;
+        rdfs:label "stdout"^^xsd:string ;
+        nipype:stdout """6397
+"""^^xsd:string .
+
+    <http://iri.nidash.org/01cdd45ac0b5414c6a286adba64f70b9> a prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "bvars"^^xsd:string ;
+                nipype:outPort "bvars"^^xsd:string ;
+                prov:activity niiri:bbca2b58aa6911eab3c20242ac110002 ] ;
+        prov:value "[\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Hipp_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Accu_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Accu_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Amyg_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Amyg_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Caud_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Caud_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Pall_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Pall_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Puta_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Puta_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Thal_first.bvars\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Thal_first.bvars\"]"^^xsd:string .
+
+    <http://iri.nidash.org/1ca06c8858d4f5804035dda14f73efe4> a prov:Entity ;
+        ns2:sha512 "ed654b6739bef6e7fc2c691a68e06445890525f455dc59d860e8cc203a000b8bc998dd4df3b6b2eae8259a93b4977e0a90696a62686b1284e63c94ff0fdb2f51"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_firstseg.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "segmentation_file"^^xsd:string ;
+                nipype:outPort "segmentation_file"^^xsd:string ;
+                prov:activity niiri:bbca2b58aa6911eab3c20242ac110002 ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_firstseg.nii.gz"^^xsd:anyURI .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/6aaa9a8ac313ff188f254e2a168aa058> a prov:Entity ;
+        ns2:sha512 "8b3edc4441b3d4c508fb433e4bf84929dcf31d2885b48f49a6cb323642c366709537b1f833b7610e187f67613f24f513a583b11009e50201c9bfcf265cad31bd"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_origsegs.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "original_segmentations"^^xsd:string ;
+                nipype:outPort "original_segmentations"^^xsd:string ;
+                prov:activity niiri:bbca2b58aa6911eab3c20242ac110002 ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented_all_none_origsegs.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    niiri:bbca40c0aa6911eab3c20242ac110002 a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:cec952845207134ba20b763fbd75ffc5 a prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "vtk_surfaces"^^xsd:string ;
+                nipype:outPort "vtk_surfaces"^^xsd:string ;
+                prov:activity niiri:bbca2b58aa6911eab3c20242ac110002 ] ;
+        prov:value "[\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Hipp_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Hipp_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Accu_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Accu_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Amyg_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Amyg_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Caud_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Caud_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Pall_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Pall_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Puta_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Puta_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-L_Thal_first.vtk\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/segmented-R_Thal_first.vtk\"]"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/32f6de25727b78d0c165d79b0076f81b> a prov:Entity ;
+        prov:value "auto"^^xsd:string .
+
+    <http://iri.nidash.org/340c7fd108eba876ac8ad0ddc7ca00fd> a prov:Entity ;
+        prov:value "[\"L_Hipp\", \"R_Hipp\", \"L_Accu\", \"R_Accu\", \"L_Amyg\", \"R_Amyg\", \"L_Caud\", \"R_Caud\", \"L_Pall\", \"R_Pall\", \"L_Puta\", \"R_Puta\", \"L_Thal\", \"R_Thal\"]"^^xsd:string .
+
+    <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> a prov:Entity ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> a prov:Entity ;
+        ns2:sha512 "8af6ec642f800136c4bb3fe9b77d59bb88b1f31d88db51ed752783b4a6c2be874304cc2cce15b70e80a7bda0611b3e24e40a344fdd4f149c9366419e52329978"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/scan_mprage_anonymized_reoriented.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/scan_mprage_anonymized_reoriented.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/907e3d50a6fb515b5c16dc33e69090c5> a prov:Entity ;
+        prov:value "segmented"^^xsd:string .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:a7817bd8f38fcec57a1ecf7e238a3e57 a prov:Entity ;
+        prov:value "allatonce"^^xsd:string .
+
+    niiri:af374650694ce9f49a897abcc556901d a prov:Entity ;
+        prov:value "{\"FSLOUTPUTTYPE\": \"NIFTI_GZ\"}"^^xsd:string .
+
+    niiri:bbca2b58aa6911eab3c20242ac110002 a nipype:NipypeInterfacesFslPreprocessFirst,
+            prov:Activity ;
+        rdfs:label "FIRST"^^xsd:string ;
+        nipype:command "run_first_all -m auto -s L_Hipp,R_Hipp,L_Accu,R_Accu,L_Amyg,R_Amyg,L_Caud,R_Caud,L_Pall,R_Pall,L_Puta,R_Puta,L_Thal,R_Thal -i /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain/scan_mprage_anonymized_reoriented.nii.gz -o segmented"^^xsd:string ;
+        nipype:commandPath "file://e570209b66bf/usr/lib/fsl/5.0/run_first_all"^^xsd:anyURI ;
+        nipype:dependencies "	not a dynamic executable"^^xsd:string ;
+        nipype:duration "508.40884"^^xsd:float ;
+        nipype:interface "FIRST"^^xsd:string ;
+        nipype:module "nipype.interfaces.fsl.preprocess"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode 0 ;
+        nipype:version "5.0.9"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/parcellate_brain"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:56:08.657527"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ],
+            [ a prov:Usage ;
+                rdfs:label "list_of_specific_structures"^^xsd:string ;
+                nipype:inPort "list_of_specific_structures"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/340c7fd108eba876ac8ad0ddc7ca00fd> ],
+            [ a prov:Usage ;
+                rdfs:label "output_type"^^xsd:string ;
+                nipype:inPort "output_type"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> ],
+            [ a prov:Usage ;
+                rdfs:label "environ"^^xsd:string ;
+                nipype:inPort "environ"^^xsd:string ;
+                prov:entity niiri:af374650694ce9f49a897abcc556901d ],
+            [ a prov:Usage ;
+                rdfs:label "in_file"^^xsd:string ;
+                nipype:inPort "in_file"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> ],
+            [ a prov:Usage ;
+                rdfs:label "terminal_output"^^xsd:string ;
+                nipype:inPort "terminal_output"^^xsd:string ;
+                prov:entity niiri:a7817bd8f38fcec57a1ecf7e238a3e57 ],
+            [ a prov:Usage ;
+                rdfs:label "out_file"^^xsd:string ;
+                nipype:inPort "out_file"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/907e3d50a6fb515b5c16dc33e69090c5> ],
+            [ a prov:Usage ;
+                rdfs:label "method"^^xsd:string ;
+                nipype:inPort "method"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/32f6de25727b78d0c165d79b0076f81b> ] ;
+        prov:startedAtTime "2020-06-09T15:47:45.116643"^^xsd:dateTime ;
+        prov:used niiri:bbca40c0aa6911eab3c20242ac110002 ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
+ns4:dcd8ec8aa6a11ea918b0242ac110002 {
+    niiri:c8eaf31caa6911eaa4790242ac110002 a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a>,
+            <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:a7817bd8f38fcec57a1ecf7e238a3e57,
+            niiri:af374650694ce9f49a897abcc556901d .
+
+    niiri:c95ee89eaa6911eaa4790242ac110002 a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember niiri:b0db50015130958ad5688f656fd5caaf ;
+        prov:wasGeneratedBy niiri:c8e48928aa6911eaa4790242ac110002 .
+
+    niiri:c9abdbccaa6911eaa4790242ac110002 a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:wasGeneratedBy niiri:c8e48928aa6911eaa4790242ac110002 .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    niiri:b0db50015130958ad5688f656fd5caaf a prov:Entity ;
+        ns2:sha512 "c65aaba8da15bed59a671a8120df15f1817ef125b0794f0075a92fcff8ea1ecb34e9ec16024887f19d59d1419a9c0d968e1dd4c5f1ecb6685a01a4aeee764e4d"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/extract_brain/scan_mprage_anonymized_reoriented_brain.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "out_file"^^xsd:string ;
+                nipype:outPort "out_file"^^xsd:string ;
+                prov:activity niiri:c8e48928aa6911eaa4790242ac110002 ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/extract_brain/scan_mprage_anonymized_reoriented_brain.nii.gz"^^xsd:anyURI .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:c8e49e2caa6911eaa4790242ac110002 a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> a prov:Entity ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> a prov:Entity ;
+        ns2:sha512 "8af6ec642f800136c4bb3fe9b77d59bb88b1f31d88db51ed752783b4a6c2be874304cc2cce15b70e80a7bda0611b3e24e40a344fdd4f149c9366419e52329978"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/reorient_brain/scan_mprage_anonymized_reoriented.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/reorient_brain/scan_mprage_anonymized_reoriented.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:a7817bd8f38fcec57a1ecf7e238a3e57 a prov:Entity ;
+        prov:value "allatonce"^^xsd:string .
+
+    niiri:af374650694ce9f49a897abcc556901d a prov:Entity ;
+        prov:value "{\"FSLOUTPUTTYPE\": \"NIFTI_GZ\"}"^^xsd:string .
+
+    niiri:c8e48928aa6911eaa4790242ac110002 a nipype:NipypeInterfacesFslPreprocessBet,
+            prov:Activity ;
+        rdfs:label "BET"^^xsd:string ;
+        nipype:command "bet /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/reorient_brain/scan_mprage_anonymized_reoriented.nii.gz /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/extract_brain/scan_mprage_anonymized_reoriented_brain.nii.gz"^^xsd:string ;
+        nipype:commandPath "file://e570209b66bf/usr/lib/fsl/5.0/bet"^^xsd:anyURI ;
+        nipype:dependencies "	not a dynamic executable"^^xsd:string ;
+        nipype:duration "5.82462"^^xsd:float ;
+        nipype:interface "BET"^^xsd:string ;
+        nipype:module "nipype.interfaces.fsl.preprocess"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode 0 ;
+        nipype:version "5.0.9"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/extract_brain"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:56:30.641606"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ],
+            [ a prov:Usage ;
+                rdfs:label "in_file"^^xsd:string ;
+                nipype:inPort "in_file"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> ],
+            [ a prov:Usage ;
+                rdfs:label "terminal_output"^^xsd:string ;
+                nipype:inPort "terminal_output"^^xsd:string ;
+                prov:entity niiri:a7817bd8f38fcec57a1ecf7e238a3e57 ],
+            [ a prov:Usage ;
+                rdfs:label "output_type"^^xsd:string ;
+                nipype:inPort "output_type"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> ],
+            [ a prov:Usage ;
+                rdfs:label "environ"^^xsd:string ;
+                nipype:inPort "environ"^^xsd:string ;
+                prov:entity niiri:af374650694ce9f49a897abcc556901d ] ;
+        prov:startedAtTime "2020-06-09T15:56:26.459144"^^xsd:dateTime ;
+        prov:used niiri:c8e49e2caa6911eaa4790242ac110002 ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
+_:Nf86d45d3ce5a448ebe58d001da120efd {
+    ns4:c37abacaa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns4:c37a5eeaa6a11ea918b0242ac110002 .
+
+    ns4:cd9b64aaa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns4:cac1226aa6a11ea918b0242ac110002 .
+
+    ns4:d051934aa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns4:cac1226aa6a11ea918b0242ac110002 .
+
+    ns4:d317970aa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns4:cac1226aa6a11ea918b0242ac110002 .
+
+    ns4:dcd8ec8aa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns4:dcd895aaa6a11ea918b0242ac110002 .
+
+    ns1:acaa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy <http://iri.nidash.org/5650fb8eaa6a11ea918b0242ac110002> .
+
+    ns5:b63ab2aa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns5:b63562aa6a11ea918b0242ac110002 .
+
+    ns6:e19e3eaa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns6:e1993eaa6a11ea918b0242ac110002 .
+
+    ns3:ac04486aa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns3:ac03ee6aa6a11ea918b0242ac110002 .
+
+    ns3:ba05e68aa6a11ea918b0242ac110002 a prov:Bundle,
+            prov:Entity ;
+        prov:wasGeneratedBy ns3:ba05936aa6a11ea918b0242ac110002 .
+
+    <http://iri.nidash.org/5650fb8eaa6a11ea918b0242ac110002> a nipype:DataSink,
+            nipype:Node,
+            prov:Activity ;
+        rdfs:label "DataSink_store_results"^^xsd:string ;
+        nipype:hashval "a91c8531104d7680832471716a460741"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:hadActivity ns4:dcd895aaa6a11ea918b0242ac110002 ],
+            [ a prov:Start ;
+                prov:hadActivity ns3:ba05936aa6a11ea918b0242ac110002 ],
+            [ a prov:Start ;
+                prov:hadActivity ns5:b63562aa6a11ea918b0242ac110002 ],
+            [ a prov:Start ;
+                prov:hadActivity ns6:e1993eaa6a11ea918b0242ac110002 ] .
+
+    ns4:c37a5eeaa6a11ea918b0242ac110002 a nipype:Function,
+            nipype:Node,
+            prov:Activity ;
+        rdfs:label "Function_download_url"^^xsd:string ;
+        nipype:hashval "db2c68a5c4596877518291af9f1aff3a"^^xsd:string .
+
+    ns5:b63562aa6a11ea918b0242ac110002 a nipype:Function,
+            nipype:Node,
+            prov:Activity ;
+        rdfs:label "Function_save_json"^^xsd:string ;
+        nipype:hashval "964b88b85aabe65414b6e64b59205e5d"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:hadActivity ns6:e1993eaa6a11ea918b0242ac110002 ],
+            [ a prov:Start ;
+                prov:hadActivity ns4:cac1226aa6a11ea918b0242ac110002 ] .
+
+    ns4:dcd895aaa6a11ea918b0242ac110002 a nipype:BET,
+            nipype:Node,
+            prov:Activity ;
+        rdfs:label "BET_extract_brain"^^xsd:string ;
+        nipype:hashval "c3dd479ea0cbe55a0e9c9a228067faa6"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:hadActivity ns3:ac03ee6aa6a11ea918b0242ac110002 ] .
+
+    ns6:e1993eaa6a11ea918b0242ac110002 a nipype:FIRST,
+            nipype:Node,
+            prov:Activity ;
+        rdfs:label "FIRST_parcellate_brain"^^xsd:string ;
+        nipype:hashval "a8cb3dc59d3000076582c8612f5bf031"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:hadActivity ns3:ac03ee6aa6a11ea918b0242ac110002 ] .
+
+    ns3:ac03ee6aa6a11ea918b0242ac110002 a nipype:Node,
+            nipype:Reorient2Std,
+            prov:Activity ;
+        rdfs:label "Reorient2Std_reorient_brain"^^xsd:string ;
+        nipype:hashval "c3dd479ea0cbe55a0e9c9a228067faa6"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:hadActivity ns4:c37a5eeaa6a11ea918b0242ac110002 ] .
+
+    ns3:ba05936aa6a11ea918b0242ac110002 a nipype:FAST,
+            nipype:Node,
+            prov:Activity ;
+        rdfs:label "FAST_segment_brain"^^xsd:string ;
+        nipype:hashval "130f59ae3c2a1f4c8cdf46fd04c2a661"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:hadActivity ns4:dcd895aaa6a11ea918b0242ac110002 ] .
+
+    ns4:cac1226aa6a11ea918b0242ac110002 a nipype:ImageStats,
+            nipype:MapNode,
+            prov:Activity ;
+        rdfs:label "ImageStats_compute_segment_stats"^^xsd:string ;
+        nipype:hashval "cd13d7670d2ce4e7c21fde992636eab7"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:hadActivity ns3:ba05936aa6a11ea918b0242ac110002 ] .
+}
+
+ns4:d317970aa6a11ea918b0242ac110002 {
+    ns4:d0d7adeaa6a11ea918b0242ac110002 a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:a7817bd8f38fcec57a1ecf7e238a3e57,
+            niiri:af374650694ce9f49a897abcc556901d,
+            niiri:cfa5986b0d4b696baa2ff1616059ab0a,
+            niiri:f61eda266ca7eccca955d8744260b3d9 .
+
+    ns4:d3126aaaa6a11ea918b0242ac110002 a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/50da20c48b5294cba8388e75f3c9a29b> ;
+        prov:wasGeneratedBy ns4:d0d455aaa6a11ea918b0242ac110002 .
+
+    ns4:d313668aa6a11ea918b0242ac110002 a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:hadMember ns4:d313b04aa6a11ea918b0242ac110002 ;
+        prov:wasGeneratedBy ns4:d0d455aaa6a11ea918b0242ac110002 .
+
+    ns4:d313bfeaa6a11ea918b0242ac110002 a prov:Entity ;
+        rdfs:label "stdout"^^xsd:string ;
+        nipype:stdout """385731 462877.218750 
+"""^^xsd:string .
+
+    <http://iri.nidash.org/77027116fea31bec04e16b6ef9768a51> a prov:Entity ;
+        prov:value "385731.0"^^xsd:float .
+
+    ns4:d0d58a6aa6a11ea918b0242ac110002 a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    <http://iri.nidash.org/50da20c48b5294cba8388e75f3c9a29b> a prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "out_stat"^^xsd:string ;
+                nipype:outPort "out_stat"^^xsd:string ;
+                prov:activity ns4:d0d455aaa6a11ea918b0242ac110002 ] ;
+        prov:value "[385731.0, 462877.21875]"^^xsd:string .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> a prov:Entity ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:a7817bd8f38fcec57a1ecf7e238a3e57 a prov:Entity ;
+        prov:value "allatonce"^^xsd:string .
+
+    niiri:af374650694ce9f49a897abcc556901d a prov:Entity ;
+        prov:value "{\"FSLOUTPUTTYPE\": \"NIFTI_GZ\"}"^^xsd:string .
+
+    niiri:cfa5986b0d4b696baa2ff1616059ab0a a prov:Entity ;
+        prov:value "-l 2.5 -u 3.5 -v"^^xsd:string .
+
+    niiri:f61eda266ca7eccca955d8744260b3d9 a prov:Entity ;
+        ns2:sha512 "a3a7ba2ea9e6da253f5036fba84683d13a1c6f926224735d2f84dac892a7611480ab95c21c017ddce9d02cd5ae680871fe5782dad6de65b336053a1ee3c8995e"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI .
+
+    ns4:d0d455aaa6a11ea918b0242ac110002 a nipype:NipypeInterfacesFslUtilsImagestats,
+            prov:Activity ;
+        rdfs:label "ImageStats"^^xsd:string ;
+        nipype:command "fslstats /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz -l 2.5 -u 3.5 -v"^^xsd:string ;
+        nipype:commandPath "file://e570209b66bf/usr/lib/fsl/5.0/fslstats"^^xsd:anyURI ;
+        nipype:dependencies """	linux-vdso.so.1 (0x00007ffc21cde000)
+	libnewimage.so => /usr/lib/fsl/5.0/libnewimage.so (0x00007f09399cb000)
+	libmiscmaths.so => /usr/lib/fsl/5.0/libmiscmaths.so (0x00007f093973d000)
+	libprob.so => /usr/lib/fsl/5.0/libprob.so (0x00007f0939535000)
+	libfslio.so => /usr/lib/fsl/5.0/libfslio.so (0x00007f0939328000)
+	libnewmat.so.10 => /usr/lib/libnewmat.so.10 (0x00007f09390cf000)
+	libutils.so => /usr/lib/fsl/5.0/libutils.so (0x00007f0938ec2000)
+	libniftiio.so.2 => /usr/lib/libniftiio.so.2 (0x00007f0938ca0000)
+	libznz.so.2 => /usr/lib/libznz.so.2 (0x00007f0938a9c000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f0938881000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f0938576000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f0938275000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f093805f000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0937cb4000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f0939d6e000)"""^^xsd:string ;
+        nipype:duration "8.58283"^^xsd:float ;
+        nipype:interface "ImageStats"^^xsd:string ;
+        nipype:module "nipype.interfaces.fsl.utils"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode 0 ;
+        nipype:version "5.0.9"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/compute_segment_stats/mapflow/_compute_segment_stats2"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:59:02.749989"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "output_type"^^xsd:string ;
+                nipype:inPort "output_type"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> ],
+            [ a prov:Usage ;
+                rdfs:label "op_string"^^xsd:string ;
+                nipype:inPort "op_string"^^xsd:string ;
+                prov:entity niiri:cfa5986b0d4b696baa2ff1616059ab0a ],
+            [ a prov:Usage ;
+                rdfs:label "terminal_output"^^xsd:string ;
+                nipype:inPort "terminal_output"^^xsd:string ;
+                prov:entity niiri:a7817bd8f38fcec57a1ecf7e238a3e57 ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ],
+            [ a prov:Usage ;
+                rdfs:label "environ"^^xsd:string ;
+                nipype:inPort "environ"^^xsd:string ;
+                prov:entity niiri:af374650694ce9f49a897abcc556901d ],
+            [ a prov:Usage ;
+                rdfs:label "in_file"^^xsd:string ;
+                nipype:inPort "in_file"^^xsd:string ;
+                prov:entity niiri:f61eda266ca7eccca955d8744260b3d9 ] ;
+        prov:startedAtTime "2020-06-09T15:59:00.991706"^^xsd:dateTime ;
+        prov:used ns4:d0d58a6aa6a11ea918b0242ac110002 ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
+ns4:cd9b64aaa6a11ea918b0242ac110002 {
+    <http://iri.nidash.org/3f664f1583c6eb3cee3e91141b1959e7> a prov:Entity ;
+        prov:value "162235.0"^^xsd:float .
+
+    ns4:cb3f734aa6a11ea918b0242ac110002 a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/0bb4deb0703c1e357cb4baf5b1193568>,
+            <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:a7817bd8f38fcec57a1ecf7e238a3e57,
+            niiri:af374650694ce9f49a897abcc556901d,
+            niiri:f61eda266ca7eccca955d8744260b3d9 .
+
+    ns4:cd95a74aa6a11ea918b0242ac110002 a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember niiri:e8cf6b9799c8838e6baf0e75aa1cc496 ;
+        prov:wasGeneratedBy ns4:cb3be90aa6a11ea918b0242ac110002 .
+
+    ns4:cd969c4aa6a11ea918b0242ac110002 a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:hadMember ns4:cd96eb0aa6a11ea918b0242ac110002 ;
+        prov:wasGeneratedBy ns4:cb3be90aa6a11ea918b0242ac110002 .
+
+    ns4:cd96faaaa6a11ea918b0242ac110002 a prov:Entity ;
+        rdfs:label "stdout"^^xsd:string ;
+        nipype:stdout """162235 194682.000000 
+"""^^xsd:string .
+
+    ns4:cb3d2eaaa6a11ea918b0242ac110002 a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    niiri:e8cf6b9799c8838e6baf0e75aa1cc496 a prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "out_stat"^^xsd:string ;
+                nipype:outPort "out_stat"^^xsd:string ;
+                prov:activity ns4:cb3be90aa6a11ea918b0242ac110002 ] ;
+        prov:value "[162235.0, 194682.0]"^^xsd:string .
+
+    <http://iri.nidash.org/0bb4deb0703c1e357cb4baf5b1193568> a prov:Entity ;
+        prov:value "-l 0.5 -u 1.5 -v"^^xsd:string .
+
+    <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> a prov:Entity ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:a7817bd8f38fcec57a1ecf7e238a3e57 a prov:Entity ;
+        prov:value "allatonce"^^xsd:string .
+
+    niiri:af374650694ce9f49a897abcc556901d a prov:Entity ;
+        prov:value "{\"FSLOUTPUTTYPE\": \"NIFTI_GZ\"}"^^xsd:string .
+
+    niiri:f61eda266ca7eccca955d8744260b3d9 a prov:Entity ;
+        ns2:sha512 "a3a7ba2ea9e6da253f5036fba84683d13a1c6f926224735d2f84dac892a7611480ab95c21c017ddce9d02cd5ae680871fe5782dad6de65b336053a1ee3c8995e"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI .
+
+    ns4:cb3be90aa6a11ea918b0242ac110002 a nipype:NipypeInterfacesFslUtilsImagestats,
+            prov:Activity ;
+        rdfs:label "ImageStats"^^xsd:string ;
+        nipype:command "fslstats /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz -l 0.5 -u 1.5 -v"^^xsd:string ;
+        nipype:commandPath "file://e570209b66bf/usr/lib/fsl/5.0/fslstats"^^xsd:anyURI ;
+        nipype:dependencies """	linux-vdso.so.1 (0x00007ffffd160000)
+	libnewimage.so => /usr/lib/fsl/5.0/libnewimage.so (0x00007f4176cff000)
+	libmiscmaths.so => /usr/lib/fsl/5.0/libmiscmaths.so (0x00007f4176a71000)
+	libprob.so => /usr/lib/fsl/5.0/libprob.so (0x00007f4176869000)
+	libfslio.so => /usr/lib/fsl/5.0/libfslio.so (0x00007f417665c000)
+	libnewmat.so.10 => /usr/lib/libnewmat.so.10 (0x00007f4176403000)
+	libutils.so => /usr/lib/fsl/5.0/libutils.so (0x00007f41761f6000)
+	libniftiio.so.2 => /usr/lib/libniftiio.so.2 (0x00007f4175fd4000)
+	libznz.so.2 => /usr/lib/libznz.so.2 (0x00007f4175dd0000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f4175bb5000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f41758aa000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f41755a9000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f4175393000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f4174fe8000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f41770a2000)"""^^xsd:string ;
+        nipype:duration "8.53723"^^xsd:float ;
+        nipype:interface "ImageStats"^^xsd:string ;
+        nipype:module "nipype.interfaces.fsl.utils"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode 0 ;
+        nipype:version "5.0.9"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/compute_segment_stats/mapflow/_compute_segment_stats0"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:58:50.949320"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "in_file"^^xsd:string ;
+                nipype:inPort "in_file"^^xsd:string ;
+                prov:entity niiri:f61eda266ca7eccca955d8744260b3d9 ],
+            [ a prov:Usage ;
+                rdfs:label "environ"^^xsd:string ;
+                nipype:inPort "environ"^^xsd:string ;
+                prov:entity niiri:af374650694ce9f49a897abcc556901d ],
+            [ a prov:Usage ;
+                rdfs:label "op_string"^^xsd:string ;
+                nipype:inPort "op_string"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/0bb4deb0703c1e357cb4baf5b1193568> ],
+            [ a prov:Usage ;
+                rdfs:label "output_type"^^xsd:string ;
+                nipype:inPort "output_type"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> ],
+            [ a prov:Usage ;
+                rdfs:label "terminal_output"^^xsd:string ;
+                nipype:inPort "terminal_output"^^xsd:string ;
+                prov:entity niiri:a7817bd8f38fcec57a1ecf7e238a3e57 ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ] ;
+        prov:startedAtTime "2020-06-09T15:58:49.195597"^^xsd:dateTime ;
+        prov:used ns4:cb3d2eaaa6a11ea918b0242ac110002 ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
+ns3:ac04486aa6a11ea918b0242ac110002 {
+    <http://iri.nidash.org/8c3037bcaa6811ea966a0242ac110002> a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a>,
+            <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:a7817bd8f38fcec57a1ecf7e238a3e57,
+            niiri:af374650694ce9f49a897abcc556901d .
+
+    <http://iri.nidash.org/8c865340aa6811ea966a0242ac110002> a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> ;
+        prov:wasGeneratedBy <http://iri.nidash.org/8c298d2caa6811ea966a0242ac110002> .
+
+    <http://iri.nidash.org/8cd82a08aa6811ea966a0242ac110002> a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:wasGeneratedBy <http://iri.nidash.org/8c298d2caa6811ea966a0242ac110002> .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    <http://iri.nidash.org/8c29a3acaa6811ea966a0242ac110002> a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> a prov:Entity ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:a7817bd8f38fcec57a1ecf7e238a3e57 a prov:Entity ;
+        prov:value "allatonce"^^xsd:string .
+
+    niiri:af374650694ce9f49a897abcc556901d a prov:Entity ;
+        prov:value "{\"FSLOUTPUTTYPE\": \"NIFTI_GZ\"}"^^xsd:string .
+
+    <http://iri.nidash.org/8c298d2caa6811ea966a0242ac110002> a nipype:NipypeInterfacesFslUtilsReorient2std,
+            prov:Activity ;
+        rdfs:label "Reorient2Std"^^xsd:string ;
+        nipype:command "fslreorient2std /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/download_url/scan_mprage_anonymized.nii.gz /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/reorient_brain/scan_mprage_anonymized_reoriented.nii.gz"^^xsd:string ;
+        nipype:commandPath "file://e570209b66bf/usr/lib/fsl/5.0/fslreorient2std"^^xsd:anyURI ;
+        nipype:dependencies "	not a dynamic executable"^^xsd:string ;
+        nipype:duration "14.70925"^^xsd:float ;
+        nipype:interface "Reorient2Std"^^xsd:string ;
+        nipype:module "nipype.interfaces.fsl.utils"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode 0 ;
+        nipype:version "5.0.9"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/reorient_brain"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:47:39.249653"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "terminal_output"^^xsd:string ;
+                nipype:inPort "terminal_output"^^xsd:string ;
+                prov:entity niiri:a7817bd8f38fcec57a1ecf7e238a3e57 ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ],
+            [ a prov:Usage ;
+                rdfs:label "in_file"^^xsd:string ;
+                nipype:inPort "in_file"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> ],
+            [ a prov:Usage ;
+                rdfs:label "output_type"^^xsd:string ;
+                nipype:inPort "output_type"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> ],
+            [ a prov:Usage ;
+                rdfs:label "environ"^^xsd:string ;
+                nipype:inPort "environ"^^xsd:string ;
+                prov:entity niiri:af374650694ce9f49a897abcc556901d ] ;
+        prov:startedAtTime "2020-06-09T15:47:32.378728"^^xsd:dateTime ;
+        prov:used <http://iri.nidash.org/8c29a3acaa6811ea966a0242ac110002> ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+
+    <http://iri.nidash.org/8cbab9a4d68aac556eb72abfbc8d6d64> a prov:Entity ;
+        ns2:sha512 "8af6ec642f800136c4bb3fe9b77d59bb88b1f31d88db51ed752783b4a6c2be874304cc2cce15b70e80a7bda0611b3e24e40a344fdd4f149c9366419e52329978"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/download_url/scan_mprage_anonymized.nii.gz"^^xsd:anyURI,
+            "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/reorient_brain/scan_mprage_anonymized_reoriented.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "out_file"^^xsd:string ;
+                nipype:outPort "out_file"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/8c298d2caa6811ea966a0242ac110002> ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/download_url/scan_mprage_anonymized.nii.gz"^^xsd:anyURI,
+            "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/reorient_brain/scan_mprage_anonymized_reoriented.nii.gz"^^xsd:anyURI .
+}
+
+ns3:ba05e68aa6a11ea918b0242ac110002 {
+    <http://iri.nidash.org/1721c042aa6a11ea8b2e0242ac110002> a nipype:Inputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Inputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a>,
+            <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89>,
+            niiri:a7817bd8f38fcec57a1ecf7e238a3e57,
+            niiri:af374650694ce9f49a897abcc556901d,
+            niiri:b0db50015130958ad5688f656fd5caaf .
+
+    <http://iri.nidash.org/17d51318aa6a11ea8b2e0242ac110002> a nipype:Outputs,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Outputs"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/93342da3932b05249107ee494054c701>,
+            niiri:cb7f4110a739bf4c199deae58fb8feb1,
+            niiri:d2f32118c510f6e5f27c77aaa24bc232,
+            niiri:f61eda266ca7eccca955d8744260b3d9 ;
+        prov:wasGeneratedBy <http://iri.nidash.org/171b20a2aa6a11ea8b2e0242ac110002> .
+
+    <http://iri.nidash.org/189bf88eaa6a11ea8b2e0242ac110002> a nipype:Runtime,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "RuntimeInfo"^^xsd:string ;
+        prov:wasGeneratedBy <http://iri.nidash.org/171b20a2aa6a11ea8b2e0242ac110002> .
+
+    <http://iri.nidash.org/575446105c6899da1952a20b9ca2d152> a prov:Entity ;
+        ns2:sha512 "d8032a9de5147198ace7fbf417572caee24a59f20306d3cced4c34f3a37283042245ce8a91948d6440e4052daef382d7a3900608cd4317c792fa08ecb793e174"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_0.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_0.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/171b32f4aa6a11ea8b2e0242ac110002> a nipype:Environment,
+            prov:Collection,
+            prov:Entity ;
+        rdfs:label "Environment"^^xsd:string ;
+        prov:hadMember <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3>,
+            niiri:c22ec36ead466e84cca82133d4d1c1ee,
+            niiri:d5ff295bd339ec326c311b5d58f392e4,
+            niiri:e633a4c11edc4eacbb7d286b784cd210 .
+
+    ns3:d6ec41fe260876ca2ca992e4b113ff6 a prov:Agent,
+            prov:Person ;
+        rdfs:label "root"^^xsd:string ;
+        foaf:name "root"^^xsd:string .
+
+    <http://iri.nidash.org/7cb3e16ca6a597fe1c455cebbafaf4e3> a prov:Entity ;
+        rdfs:label "LD_LIBRARY_PATH"^^xsd:string ;
+        nipype:environmentVariable "LD_LIBRARY_PATH"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/lib/fsl/5.0"^^xsd:anyURI .
+
+    <http://iri.nidash.org/93342da3932b05249107ee494054c701> a prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "partial_volume_files"^^xsd:string ;
+                nipype:outPort "partial_volume_files"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/171b20a2aa6a11ea8b2e0242ac110002> ] ;
+        prov:value "[\"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_0.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_1.nii.gz\", \"/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pve_2.nii.gz\"]"^^xsd:string .
+
+    niiri:c22ec36ead466e84cca82133d4d1c1ee a prov:Entity ;
+        rdfs:label "PATH"^^xsd:string ;
+        nipype:environmentVariable "PATH"^^xsd:string ;
+        prov:value "/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin:/usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"^^xsd:string .
+
+    niiri:cb7f4110a739bf4c199deae58fb8feb1 a prov:Entity ;
+        ns2:sha512 "261675e42afb5e313be9fd23a694d7dd1595c3b1e6a34e794a8c78d97c7ea53fac483de9c5f7cfacc3e1a0df472d0fe69f7f8537e757dff7f049204df6fc39cf"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_mixeltype.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "mixeltype"^^xsd:string ;
+                nipype:outPort "mixeltype"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/171b20a2aa6a11ea8b2e0242ac110002> ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_mixeltype.nii.gz"^^xsd:anyURI .
+
+    niiri:d2f32118c510f6e5f27c77aaa24bc232 a prov:Entity ;
+        ns2:sha512 "caee3dd25ffd9255180b7e0fa972fe6b5b0fa3c97b2a928472c79478d1d351b27ef42e4e69f4dd6f57aa6ebcc00623ef542deb620b4f73653a10aface44cc629"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_seg.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "tissue_class_map"^^xsd:string ;
+                nipype:outPort "tissue_class_map"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/171b20a2aa6a11ea8b2e0242ac110002> ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_seg.nii.gz"^^xsd:anyURI .
+
+    niiri:d5ff295bd339ec326c311b5d58f392e4 a prov:Entity ;
+        rdfs:label "FSLDIR"^^xsd:string ;
+        nipype:environmentVariable "FSLDIR"^^xsd:string ;
+        prov:value "file://e570209b66bf/usr/share/fsl/5.0"^^xsd:anyURI .
+
+    niiri:deadf005158ef9bbf11d68ba3d90862d a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Nipype"^^xsd:string ;
+        nipype:commit_hash "%h"^^xsd:string ;
+        nipype:commit_source "archive substitution"^^xsd:string ;
+        nipype:networkx_version "1.11"^^xsd:string ;
+        nipype:nibabel_version "2.0.2"^^xsd:string ;
+        nipype:numpy_version "1.11.1"^^xsd:string ;
+        nipype:pkg_path "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/lib/python2.7/site-packages/nipype"^^xsd:anyURI ;
+        nipype:scipy_version "0.18.0"^^xsd:string ;
+        nipype:sys_executable "file://e570209b66bf/opt/repronim/simple_workflow/miniconda/envs/bh_demo/bin/python"^^xsd:anyURI ;
+        nipype:sys_platform "linux2"^^xsd:string ;
+        nipype:sys_version """2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]"""^^xsd:string ;
+        nipype:traits_version "4.5.0"^^xsd:string ;
+        nipype:version "0.12.0"^^xsd:string ;
+        foaf:name "Nipype"^^xsd:string .
+
+    niiri:e633a4c11edc4eacbb7d286b784cd210 a prov:Entity ;
+        rdfs:label "FSLOUTPUTTYPE"^^xsd:string ;
+        nipype:environmentVariable "FSLOUTPUTTYPE"^^xsd:string ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    niiri:f61eda266ca7eccca955d8744260b3d9 a prov:Entity ;
+        ns2:sha512 "a3a7ba2ea9e6da253f5036fba84683d13a1c6f926224735d2f84dac892a7611480ab95c21c017ddce9d02cd5ae680871fe5782dad6de65b336053a1ee3c8995e"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                rdfs:label "partial_volume_map"^^xsd:string ;
+                nipype:outPort "partial_volume_map"^^xsd:string ;
+                prov:activity <http://iri.nidash.org/171b20a2aa6a11ea8b2e0242ac110002> ] ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain_pveseg.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> a prov:Entity ;
+        prov:value "NIFTI_GZ"^^xsd:string .
+
+    <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> a prov:Entity ;
+        prov:value 0 .
+
+    niiri:a7817bd8f38fcec57a1ecf7e238a3e57 a prov:Entity ;
+        prov:value "allatonce"^^xsd:string .
+
+    niiri:af374650694ce9f49a897abcc556901d a prov:Entity ;
+        prov:value "{\"FSLOUTPUTTYPE\": \"NIFTI_GZ\"}"^^xsd:string .
+
+    niiri:b0db50015130958ad5688f656fd5caaf a prov:Entity ;
+        ns2:sha512 "c65aaba8da15bed59a671a8120df15f1817ef125b0794f0075a92fcff8ea1ecb34e9ec16024887f19d59d1419a9c0d968e1dd4c5f1ecb6685a01a4aeee764e4d"^^xsd:string ;
+        prov:atLocation "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain.nii.gz"^^xsd:anyURI ;
+        prov:value "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain.nii.gz"^^xsd:anyURI .
+
+    <http://iri.nidash.org/171b20a2aa6a11ea8b2e0242ac110002> a nipype:NipypeInterfacesFslPreprocessFast,
+            prov:Activity ;
+        rdfs:label "FAST"^^xsd:string ;
+        nipype:command "fast -S 1 /opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain/scan_mprage_anonymized_reoriented_brain.nii.gz"^^xsd:string ;
+        nipype:commandPath "file://e570209b66bf/usr/lib/fsl/5.0/fast"^^xsd:anyURI ;
+        nipype:dependencies """	linux-vdso.so.1 (0x00007ffd9c15e000)
+	libnewimage.so => /usr/lib/fsl/5.0/libnewimage.so (0x00007fae44051000)
+	libmiscmaths.so => /usr/lib/fsl/5.0/libmiscmaths.so (0x00007fae43dc3000)
+	libfslio.so => /usr/lib/fsl/5.0/libfslio.so (0x00007fae43bb6000)
+	libniftiio.so.2 => /usr/lib/libniftiio.so.2 (0x00007fae43994000)
+	libutils.so => /usr/lib/fsl/5.0/libutils.so (0x00007fae43787000)
+	libnewmat.so.10 => /usr/lib/libnewmat.so.10 (0x00007fae4352e000)
+	libznz.so.2 => /usr/lib/libznz.so.2 (0x00007fae4332a000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007fae4310f000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fae42e04000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fae42b03000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fae428ed000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fae42542000)
+	libprob.so => /usr/lib/fsl/5.0/libprob.so (0x00007fae4233a000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fae443f4000)"""^^xsd:string ;
+        nipype:duration "131.85406"^^xsd:float ;
+        nipype:interface "FAST"^^xsd:string ;
+        nipype:module "nipype.interfaces.fsl.preprocess"^^xsd:string ;
+        nipype:platform "Linux-4.9.49-moby-x86_64-with-debian-8.11"^^xsd:string ;
+        nipype:returnCode 0 ;
+        nipype:version "5.0.9"^^xsd:string ;
+        nipype:workingDirectory "file://e570209b66bf/opt/repronim/simple_workflow/scripts/output/metaflow/AnnArbor_sub16960/segment_brain"^^xsd:anyURI ;
+        prov:endedAtTime "2020-06-09T15:58:41.861671"^^xsd:dateTime ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:hadRole nipype:LoggedInUser ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                rdfs:label "in_files"^^xsd:string ;
+                nipype:inPort "in_files"^^xsd:string ;
+                prov:entity niiri:b0db50015130958ad5688f656fd5caaf ],
+            [ a prov:Usage ;
+                rdfs:label "ignore_exception"^^xsd:string ;
+                nipype:inPort "ignore_exception"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/9ec227a6f740d9ba54614c67f6f65e89> ],
+            [ a prov:Usage ;
+                rdfs:label "output_type"^^xsd:string ;
+                nipype:inPort "output_type"^^xsd:string ;
+                prov:entity <http://iri.nidash.org/51acba0392b8e39e8fe31885c680431a> ],
+            [ a prov:Usage ;
+                rdfs:label "environ"^^xsd:string ;
+                nipype:inPort "environ"^^xsd:string ;
+                prov:entity niiri:af374650694ce9f49a897abcc556901d ],
+            [ a prov:Usage ;
+                rdfs:label "terminal_output"^^xsd:string ;
+                nipype:inPort "terminal_output"^^xsd:string ;
+                prov:entity niiri:a7817bd8f38fcec57a1ecf7e238a3e57 ] ;
+        prov:startedAtTime "2020-06-09T15:56:36.176265"^^xsd:dateTime ;
+        prov:used <http://iri.nidash.org/171b32f4aa6a11ea8b2e0242ac110002> ;
+        prov:wasAssociatedWith ns3:d6ec41fe260876ca2ca992e4b113ff6,
+            niiri:deadf005158ef9bbf11d68ba3d90862d ;
+        foaf:host "e570209b66bf"^^xsd:anyURI .
+}
+
