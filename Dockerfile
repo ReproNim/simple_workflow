@@ -33,14 +33,19 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /boot /media /mnt /srv
 
 # Setting up conda environment given simple_workflow specifications
-RUN mkdir -p /opt/repronim/simple_workflow/niflow-repronim-simple1
-COPY niflow-repronim-simple1 /opt/repronim/simple_workflow/niflow-repronim-simple1
+RUN mkdir /opt/repronim && mkdir /opt/repronim/simple_workflow && \
+    mkdir /opt/repronim/simple_workflow/scripts
+WORKDIR /opt/repronim/
 # RUN curl -Ok https://raw.githubusercontent.com/ReproNim/simple_workflow/e4063fa95cb494da496565ec27c4ffe8a4901c45/Simple_Prep.sh
-COPY Simple_Prep.sh /opt/repronim/simple_workflow/
-COPY environment.yml /opt/repronim/simple_workflow/
-RUN cd /opt/repronim/simple_workflow/ && bash Simple_Prep.sh
+COPY Simple_Prep.sh ./
+WORKDIR /opt/repronim/simple_workflow/scripts
+COPY environment.yml ./
+COPY expected_output expected_output
+COPY *.py ./
+WORKDIR /opt/repronim/
+RUN bash Simple_Prep.sh
 
-COPY startup.sh /opt/repronim/simple_workflow/
-RUN chmod +x /opt/repronim/simple_workflow/startup.sh
-WORKDIR /opt/repronim/niflow-repronim-simple1/test/scripts
-ENTRYPOINT ["/opt/repronim/simple_workflow/startup.sh"]
+WORKDIR /opt/repronim/simple_workflow/scripts
+COPY startup.sh ./
+RUN chmod +x startup.sh
+ENTRYPOINT ["/opt/repronim/simple_workflow/scripts/startup.sh"]
