@@ -18,7 +18,13 @@ https://docs.google.com/spreadsheets/d/11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh
 
 ### 1. To execute demo with Docker
 
-First download the image
+First, make sure the path you are currently working in has 21 or fewer characters.  To assess the number of characters in your current directory, do:
+
+```echo ${#PWD}```
+
+If this number exceeds 21, please change your directory accordingly. 
+
+Next, download the image
 ```bash
 docker pull repronim/simple_workflow:latest
 ```
