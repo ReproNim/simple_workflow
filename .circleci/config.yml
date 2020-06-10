@@ -51,8 +51,10 @@ jobs:
             echo $repronimtag
             # make the output directory (may not be necessary)
             mkdir -p ${HOME}/output
-            docker run -it --rm -v ${HOME}/output:/opt/repronim/simple_workflow/scripts/output $repronimtag run_demo_workflow.py --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 2
-            docker run -it --rm -v ${HOME}/output:/opt/repronim/simple_workflow/scripts/output $repronimtag check_output.py --ignoremissing | tee ${HOME}/log.txt
+            docker run -it --rm -v ${HOME}/output:/opt/repronim/simple_workflow/niflow-repronim-simple1/test/output $repronimtag \
+                niflow-repronim-simple1 --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 2 -o /opt/repronim/simple_workflow/niflow-repronim-simple1/test/output
+            docker run -it --rm -v ${HOME}/output:/opt/repronim/simple_workflow/niflow-repronim-simple1/test/output $repronimtag \
+                python check_output.py --ignoremissing | tee ${HOME}/log.txt
             cat ${HOME}/log.txt && if grep -q "MATCH" ${HOME}/log.txt; then true; else false; fi
 
       - store_artifacts:
