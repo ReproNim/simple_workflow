@@ -23,24 +23,29 @@ First download the image
 docker pull repronim/simple_workflow:latest
 ```
 
+> ERRATA (9 Feb 2022): The docker image contains an older set of SSL certificate 
+> authority certificates. This results in an error when running the command. We
+> can provide the following environmental variable to make container work without
+> rebuilding it. `-e CURL_CA_BUNDLE=''`
+
 Now you can run the image as follows to test on 1 participant's data:
 
 ```bash
 docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest run_demo_workflow.py \
+   -e CURL_CA_BUNDLE='' repronim/simple_workflow:latest run_demo_workflow.py \
    --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1 
 docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest check_output.py --ignoremissing
+   -e CURL_CA_BUNDLE='' repronim/simple_workflow:latest check_output.py --ignoremissing
 ```
 
 You can extend this to all participants as follows. 
 
 ```bash
 docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest run_demo_workflow.py \
+   -e CURL_CA_BUNDLE='' repronim/simple_workflow:latest run_demo_workflow.py \
    --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA
 docker run -it --rm -v $PWD/output:/opt/repronim/simple_workflow/scripts/output \
-   repronim/simple_workflow:latest check_output.py
+   -e CURL_CA_BUNDLE='' repronim/simple_workflow:latest check_output.py
 ```
 
 ### 2. To execute demo within your current environment
@@ -158,8 +163,8 @@ image from DockerHub. The following commands require Singularity v2.4.3 or later
 ```bash
 singularity build repronim.img docker://repronim/simple_workflow:latest
 singularity run -B $PWD/output:/opt/repronim/simple_workflow/scripts/output -c \
-  --pwd /opt/repronim/simple_workflow/scripts/ repronim.img run_demo_workflow.py \
+  --pwd /opt/repronim/simple_workflow/scripts/ --env CURL_CA_BUNDLE='' repronim.img run_demo_workflow.py \
   --key 11an55u9t2TAf0EV2pHN0vOd8Ww2Gie-tHp9xGULh_dA -n 1
 singularity run -B $PWD/output:/opt/repronim/simple_workflow/scripts/output -c \
-  --pwd /opt/repronim/simple_workflow/scripts/ repronim.img check_output.py --ignoremissing
+  --pwd /opt/repronim/simple_workflow/scripts/ --env CURL_CA_BUNDLE='' repronim.img check_output.py --ignoremissing
 ```
